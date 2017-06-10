@@ -1,3 +1,4 @@
+/* FILE TO ADD PROJECTS */
 function disp_Projects() {
 
     document.getElementById('box_content').innerHTML='<div id="box_header"><h2 id="inner_box_title"><span id="box_logo"></span> | <span id="box_title"></span></h2></div><div id="box_description"></div><table id="box_footer" style="width:100%"><tr><th>&lt;</th><th id="box_footer_left_icon"></th><th>|</th><th><a id="box_footer_source" href="#">source</a></th><th>|</th><th id="box_footer_right_icon"></th><th>&gt;</th></tr></table>';
