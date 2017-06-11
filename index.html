@@ -7,50 +7,57 @@
 
         <meta name="viewport" content="width=700px" />
 
-
         <link rel="icon" href="https://avatars1.githubusercontent.com/u/19672114?v=3&s=460" />
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta" />
+        <link href="https://fonts.googleapis.com/css?family=Teko|Roboto|Source+Code+Pro" rel="stylesheet">
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
         <!--===========-->
 <style>
-html{
+html {
     width:100%;
     height:100%;
     position: relative;
 }
-body{
-    background-color: rgb(38,38,38);
-    color: white;
-    position: absolute;
-    left: 15px;
-    top: 15px;
+body {
+    background-color: #0f0f0f;
+    color: #fff;
+    margin: 0 0 0 30px;
     width:100%;
     height:100%;
-    font-family: Allerta;
+    font-family: 'Source Code Pro';
 }
-h1{
-    font-family: "Helvetica Neue";
+h1 {
+    text-transform: uppercase;
+    font-family: 'Teko';
+    letter-spacing: 4px;
+    font-weight: 400;
     font-size: 50px;
 }
-a{
-    color: white;
-}
-a:hover, a:visited, a:link, a:active {
+a, a:visited, a:link, a:active {
+    color: #fff;
     text-decoration: none;
 }
 a:hover {
-    color: rgb(151, 131, 213);
+    color: #FFE360;
+}
+p {
+    font-family: 'Roboto';
+    text-align: justify;
+}
+tr {
+  margin: 0;
+}
+th {
+    padding: 0 10px 0 10px;
 }
 #box {
-    background-color:gray;
     float:right;
     position: relative;
     height:100%;
     width:75%;
-    box-shadow: 5px 5px 10px black;
 }
 #navbar {
+    text-align: left;
     border-spacing: 5px;
     float:left;
     width: 25%;
@@ -67,14 +74,11 @@ a:hover {
 #box_content {
     width: 95%;
     height: 95%;
-    margin-top:1px;
-    margin-bottom: 1px;
-    margin-right: 10px;
-    margin-left:10px;
     position: absolute;
+    padding: 15px;
 }
 #box_title {
-    height: 5%
+    height: 5%;
 }
 #box_footer {
     height: 10%;
@@ -84,19 +88,17 @@ a:hover {
     height: 80%;
 }
 #inner_box_title {
-margin-top: 15px;
-margin-bottom:1px;
+  margin: 0px;
 }
 </style>
 
     </head>
 
     <body>
-        <div id="header">
+        <div id="box_header">
             <table>
                 <tr>
                     <th><a href="http://github.com/p4p1/"><img width="55px" height="55px" src="https://p4p1.github.io/img/logo_pingu.png" /></a></th>
-                    <th></th><th></th>
                     <th><h1><span id="titlep">p</span><span id="title4">4</span><span id="titlepp">p</span><span id="title1">1</span></h1></th>
                 </tr>
             </table>
@@ -135,6 +137,6 @@ margin-bottom:1px;
 
     <script src="projects.js"></script>
     <script src="project_list.js"></script>
-    <script src="animations.js"></script>
+    <!-- <script src="animations.js"></script> -->
 
 </html>
