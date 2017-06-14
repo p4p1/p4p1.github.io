@@ -1,146 +1,168 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+	<head>
 
-        <title>p4p1</title>
+	<title>p4p1</title>
 
-        <meta name="viewport" content="width=700px" />
+	<meta name="viewport" content="width=700px" />
 
-        <link rel="icon" href="https://avatars1.githubusercontent.com/u/19672114?v=3&s=460" />
-        <link href="https://fonts.googleapis.com/css?family=Teko|Roboto|Source+Code+Pro" rel="stylesheet">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-        <!--===========-->
+	<link rel="icon" href="https://avatars1.githubusercontent.com/u/19672114?v=3&s=460" />
+	<link href="https://fonts.googleapis.com/css?family=Teko|Roboto|Source+Code+Pro" rel="stylesheet">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+	<!--===========-->
+		
 <style>
-html {
-    width:100%;
-    height:100%;
-    position: relative;
-}
-body {
-    background-color: #0f0f0f;
-    color: #fff;
-    margin: 0 0 0 30px;
-    height:100%;
-    font-family: 'Source Code Pro';
-}
-h1 {
-    text-transform: uppercase;
-    font-family: 'Teko';
-    letter-spacing: 4px;
-    font-weight: 400;
-    font-size: 50px;
-}
-h3 {
-	margin: 0 0 30px 0;	
-}
-a, a:visited, a:link, a:active {
-    color: #fff;
-    text-decoration: none;
-}
-a:hover {
-    color: #FFE360;
-}
-p {
-    font-family: 'Roboto';
-    text-align: justify;
-}
-tr {
-    margin: 0;
-}
-th {
-    padding: 0 10px 0 10px;
-}
-#box {
-    background-color: #e0e0e0;
-    color: #0f0f0f;
-    position: relative;
-    margin-left: 300px;
-    height:100%;
-}
-#box a{
-  color: #0f0f0f;
-}
-#navbar {
-    position: fixed;
-    text-align: left;
-    border-spacing: 5px;
-    width: 350px;
-}
-#middle_text {
-    text-align: center;
-    vertical-align: middle;
-}
-#box_content {
-    width: 95%;
-    height: 95%;
-    position: absolute;
-    margin: 30px 30px 0 30px;
-}
-#box_title {
-    height: 5%;
-}
-#box_footer {
-    height: 10%;
-}
-#box_description {
-    overflow: auto;
-    height: 85%;
-}
-#inner_box_title {
-  margin: 0px;
-}
+	
+	html {
+		width:100%;
+		height:100%;
+		position: relative;
+	}
+	
+	body {
+		background-color: #0f0f0f;
+		color: #fff;
+		margin: 0 0 0 30px;
+		height:100%;
+		font-family: 'Source Code Pro';
+	}
+	
+	h1 {
+		text-transform: uppercase;
+		font-family: 'Teko';
+		letter-spacing: 4px;
+		font-weight: 400;
+		font-size: 50px;
+	}
+	
+	h3 {
+		margin: 0 0 30px 0;	
+	}
+
+	a, a:visited, a:link, a:active {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #FFE360;
+	}
+	
+	p {
+		font-family: 'Roboto';
+		text-align: justify;
+	}
+	
+	tr {
+		margin: 0;
+	}
+	
+	th {
+		padding: 0 10px 0 10px;
+	}
+	
+	#box {
+		background-color: #e0e0e0;
+		color: #0f0f0f;
+		position: relative;
+		margin-left: 300px;
+		height:100%;
+	}
+	
+	#box a {
+		color: #0f0f0f;
+	}
+	
+	#navbar {
+		position: fixed;
+		text-align: left;
+		border-spacing: 5px;
+		width: 350px;
+	}
+	
+	#middle_text {
+		text-align: center;
+		vertical-align: middle;
+	}
+	
+	#box_content {
+		width: 95%;
+		height: 95%;
+		position: absolute;
+		margin: 30px 30px 0 30px;
+	}
+	
+	#box_title {
+		height: 5%;
+	}
+	
+	#box_footer {
+		height: 10%;
+	}
+	
+	#box_description {
+		overflow: auto;
+		height: 85%;
+	}
+	
+	#inner_box_title {
+		margin: 0px;
+	}
+	
 </style>
 
-    </head>
+	</head>
 
-    <body>
-        <div id="main">
-        <!--<div id="box_header">
-            <table>
-                <tr>
+	<body>
+		<div id="main">
+			
+			<!--<div id="box_header">
+				<table>
+					<tr>
 
-                </tr>
-            </table>
-        </div> -->
-            <table id="navbar">
-                  <tr>
-                    <th class="title"><a href="http://github.com/p4p1/"><img width="55px" height="55px" src="https://p4p1.github.io/img/logo_pingu.png" /></a></th>
-                    <th><h1><span id="titlep">p</span><span id="title4">4</span><span id="titlepp">p</span><span id="title1">1</span></h1></th>
-                </tr>
-                <tr>
-                    <th><a onclick="disp_Projects();" href="#">Random Project</a></th>
-                    <th id="navbar_expand">&gt;</th>
-                    <th></th><!-- padding th -->
-                    <th></th>
-                </tr>
-                <tr>
-                    <th><a onclick="disp_list();" href="#">Project list</a></th>
-                    <th>&gt;</th>
-                    <th></th><!-- padding th -->
-                    <th></th>
-                </tr>
-                <tr>
-                    <th><a href="mailto:k0oo@icloud.com">Email Me</a></th>
-                    <th>&gt;</th>
-                    <th></th><!-- padding th -->
-                    <th></th>
-                </tr>
-            </table>
-        </div>
-            <div id="box">
-                <div id="box_content">
-                    <p id="middle_text"><br/>Pick a tab<br/>&lt;==</p>
-                </div>
-            </div>
-            <!-- <p id="middle_text"><br/>Pick a tab<br/>&lt;==</p> -->
-        </div>
+					</tr>
+				</table>
+			</div> -->
+			
+			<table id="navbar">
+				<tr>
+					<th class="title"><a href="http://github.com/p4p1/"><img width="55px" height="55px" src="https://p4p1.github.io/img/logo_pingu.png" /></a></th>
+					<th><h1><span id="titlep">p4p1</span></h1></th>
+				</tr>
+				<tr>
+					<th><a onclick="disp_Projects();" href="#">Random Project</a></th>
+					<th id="navbar_expand">&gt;</th>
+					<th></th><!-- padding th -->
+					<th></th>
+				</tr>
+				<tr>
+					<th><a onclick="disp_list();" href="#">Project list</a></th>
+					<th>&gt;</th>
+					<th></th><!-- padding th -->
+					<th></th>
+				</tr>
+				<tr>
+					<th><a href="mailto:k0oo@icloud.com">Email Me</a></th>
+					<th>&gt;</th>
+					<th></th><!-- padding th -->
+					<th></th>
+				</tr>
+			</table>
+		</div>
 
-    </body>
+		<div id="box">
+			<div id="box_content">
+				<p id="middle_text"><br/>Pick a tab<br/>&lt;==</p>
+			</div>
+		</div>
+		<!-- <p id="middle_text"><br/>Pick a tab<br/>&lt;==</p> -->
 
-    <script src="projects.js"></script>
-    <script src="project_list.js"></script>
-    <!-- <script src="animations.js"></script> -->
+	</body>
+
+	<script src="projects.js"></script>
+	<script src="project_list.js"></script>
+	<!-- <script src="animations.js"></script> -->
 
 </html>
