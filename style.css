@@ -61,6 +61,7 @@ th {
     text-align: left;
     border-spacing: 5px;
     width: 350px;
+    height: 100%;
 }
 
 #middle_text {
@@ -89,4 +90,9 @@ th {
 
 #inner_box_title {
     margin: 0px;
+}
+
+#language_changer {
+    position: absolute;
+    bottom: 10px;
 }
