@@ -38,6 +38,7 @@ p {
     font-family: 'Roboto';
     text-align: justify;
 }
+
 tr {
     margin: 0;
 }
@@ -53,9 +54,11 @@ th {
     margin: 0 0 0 300px;
     height:100%;
 }
+
 #box a {
     color: #0f0f0f;
 }
+
 #main {
     position: fixed;
     text-align: left;
@@ -73,6 +76,7 @@ th {
     margin: 0;
     padding: 30px;
 }
+
 #box_title {
     height: 5%;
 }
