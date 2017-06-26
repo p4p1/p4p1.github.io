@@ -53,7 +53,7 @@
                     <th></th>
                 </tr>
             </table>
-            <p id="language_changer"><a href="#" onclick="change_to_french();">fr</a>/<a href="#" onclick="change_to_english();">en</a></p>
+            <p id="language_changer"><a href="?lang=fr">fr</a>/<a href="?lang=en">en</a></p>
         </div>
 
         <div id="box">
@@ -68,12 +68,25 @@
     <script src="presentation.js"></script>
 
     <script>
-        var lang="English";
-        function change_to_french() {
-            lang = 'French';
+        function $_GET(param) {
+            var vars = {};
+            window.location.href.replace( location.hash, '' ).replace(
+                /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                function( m, key, value ) { // callback
+                    vars[key] = value !== undefined ? value : '';
+                }
+            );
+
+            if ( param ) {
+                return vars[param] ? vars[param] : null;
+            }
+            vars;
         }
-        function change_to_english() {
-            lang = 'English';
+        var lang="English";
+        if ( $_GET("lang") == "fr" ) {
+            lang = "French";
+        } else {
+            lang = "English";
         }
         function print_presentation(){
             disp_presentation(lang);
