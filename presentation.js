@@ -1,5 +1,4 @@
 function disp_presentation(lang) {
-    alert(lang);
     if (lang == "English") {
         document.getElementById('box_content').innerHTML = "<h2>Hello, my name is Leo Smith</h2><p>I'm a computer programmer who loves learning, working and experimenting with every languages. I'm currently an expert in C (networking, multithreading, Windows APIs...) and advanced in Python. I also learned the basics of PHP, HTML/CSS, JavaScript and Assembly basics for ARM Processors. I'm familiar with UNIX, OS X and Windows architectures. I understand most networking protocols.<br /> Apart from programming, I have experience in basic IoT with Raspberry Pi, Arduino and micro processors, as well as in computer security: I understand low level security (memory corruption, buffer overflow...) and higher level security too (XSS, CSRF...).</p>";
     } else {
