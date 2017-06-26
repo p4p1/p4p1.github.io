@@ -29,19 +29,19 @@
                     <th><h1><span id="titlep">p4p1</span></h1></th>
                 </tr>
                 <tr>
-                    <th><a onclick="" href="#">Presentation</a></th>
+                    <th><a onclick="print_presentation();" href="#">Presentation</a></th>
                     <th>&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr>
-                    <th><a onclick="disp_Projects();" href="#">Random Project</a></th>
+                    <th><a onclick="disp_Projects(lang);" href="#">Random Project</a></th>
                     <th id="navbar_expand">&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr>
-                    <th><a onclick="disp_list();" href="#">Project list</a></th>
+                    <th><a onclick="disp_list(lang);" href="#">Project list</a></th>
                     <th>&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
@@ -53,12 +53,11 @@
                     <th></th>
                 </tr>
             </table>
-            <p id="language_changer"><a>fr</a>/<a>en</a></p>
+            <p id="language_changer"><a href="#" onclick="change_to_french();">fr</a>/<a href="#" onclick="change_to_english();">en</a></p>
         </div>
 
         <div id="box">
             <div id="box_content">
-                <h2>Hello, my name is Leo Smith</h2><p>I'm a computer programmer who loves learning, working and experimenting with every languages. I'm currently an expert in C (networking, multithreading, Windows APIs...) and advanced in Python. I also learned the basics of PHP, HTML/CSS, JavaScript and Assembly basics for ARM Processors. I'm familiar with UNIX, OS X and Windows architectures. I understand most networking protocols.<br /> Apart from programming, I have experience in basic IoT with Raspberry Pi, Arduino and micro processors, as well as in computer security: I understand low level security (memory corruption, buffer overflow...) and higher level security too (XSS, CSRF...).</p>
             </div>
         </div>
 
@@ -66,5 +65,19 @@
 
     <script src="projects.js"></script>
     <script src="project_list.js"></script>
+    <script src="presentation.js"></script>
 
+    <script>
+        var lang="English";
+        function change_to_french() {
+            lang = 'French';
+        }
+        function change_to_english() {
+            lang = 'English';
+        }
+        function print_presentation(){
+            disp_presentation(lang);
+        }
+        disp_presentation(lang);
+    </script>
 </html>
