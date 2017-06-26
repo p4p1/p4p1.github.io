@@ -29,31 +29,25 @@
                     <th><h1><span id="titlep">p4p1</span></h1></th>
                 </tr>
                 <tr>
-                    <th><a onclick="print_presentation();" href="#">Presentation</a></th>
+                    <th><a id="presentation_link" onclick="move_presentation();" href="#">Presentation</a></th>
                     <th>&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr>
-                    <th><a onclick="disp_Projects(lang);" href="#">Random Project</a></th>
-                    <th id="navbar_expand">&gt;</th>
-                    <th></th><!-- padding th -->
-                    <th></th>
-                </tr>
-                <tr>
-                    <th><a onclick="print_list(lang);" href="#">Project list</a></th>
+                    <th><a id="project_list_link" onclick="move_list();" href="#">Projects</a></th>
                     <th>&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr>
-                    <th><a href="mailto:k0oo@icloud.com">Email Me</a></th>
+                    <th><a id="email_link" href="mailto:k0oo@icloud.com">Email Me</a></th>
                     <th>&gt;</th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
             </table>
-            <p id="language_changer"><a href="?lang=fr">fr</a>/<a href="?lang=en">en</a></p>
+            <p id="language_changer"><a onclick="change_lang('fr');" href="#">fr</a>/<a onclick="change_lang('en');" href="#">en</a></p>
         </div>
 
         <div id="box">
@@ -82,18 +76,43 @@
             }
             vars;
         }
+
+        function move_list() {
+            if (document.URL.indexOf("?") > 0) {
+                document.location.href = document.URL+"&pos=list";
+            } else {
+                document.location.href = document.URL+"?pos=list";
+            }
+
+        }
+        function change_lang(l) {
+            if (document.URL.indexOf("?") > 0) {
+                document.location.href = document.URL+"&lang="+l;
+            } else {
+                document.location.href = document.URL+"?lang="+l;
+            }
+
+        }
+        function move_presentation(){
+            if (document.URL.indexOf("?") > 0) {
+                document.location.href = document.URL+"&pos=pres";
+            } else {
+                document.location.href = document.URL+"?pos=pres";
+            }
+        }
         var lang="English";
         if ( $_GET("lang") == "fr" ) {
             lang = "French";
+            document.getElementById('presentation_link').innerHTML = "Pr&eacute;sentation";
+            document.getElementById('project_list_link').innerHTML = "Projets";
+            document.getElementById('email_link').innerHTML = "Email";
         } else {
             lang = "English";
         }
-        function print_presentation(){
+        if ($_GET("pos") == "list") {
+            disp_list(lang);
+        } else {
             disp_presentation(lang);
         }
-        function print_list(){
-            disp_list(lang);
-        }
-        disp_presentation(lang);
     </script>
 </html>
