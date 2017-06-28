@@ -4,11 +4,13 @@ function disp_p4p1(lang) {
 
     document.getElementById('box_logo').innerHTML = '<img src="https://p4p1.github.io/img/peachx2.png" />';
     document.getElementById('box_title').innerHTML = 'p4p1';
-    document.getElementById('box_description').innerHTML = '<p>p4p1, is a reverse shell for remote use of the windows dommand prompt. This reverse shell allows you to use the dos shell that is provided with cmd.exe as a remote tool.</p><img width="280px" height="156px" src="https://raw.githubusercontent.com/p4p1/p4p1/master/testing/Documentation/Screen%20Shot%202016-10-14%20at%2001.02.24.png" /><iframe width="280px" height="156px" src="https://www.youtube.com/embed/RpRrMuGo_y4" frameborder="0" allowfullscreen></iframe>';
     document.getElementById('box_footer_left_icon').innerHTML = '<img onclick="disp_kb();" src="https://p4p1.github.io/img/flopx2.png"/>';
     document.getElementById('box_footer_source').href = 'https://github.com/p4p1/p4p1/';
     document.getElementById('box_footer_right_icon').innerHTML = '<img onclick="disp_larp();" src="https://p4p1.github.io/img/lemonx2.png" />';
-
+    if (lang == "English"){
+        document.getElementById('box_description').innerHTML = "<p>This is a remote administration tool that allows you to put a shell on your' machine that controls an or multiple other machines. It has a client and server side. The server side of the application is cross platform, and the client side is only Windows compatible. Each client is manually configured and will connect to an the ip that is hard writen inside of it's binary or from a configuration file that is on the clients computer. This is an example of the hard coded configuration file:</p><img src='img/cfg.png'/><p>green -> port | red->ip address | white -> advanced configuration<br />On the network side of things p4p1 works in a star map, it could be visualised like this:</p><img width='330px' height='207px' src='img/network_map.png' /><p>Because of the network configuration, the server can send commands to individual clients or send to every client that is online. To install the server run</p><pre><code class='python'>pip install -U .</code></pre><p>inside of the server directory.<br />For more information look at the <u><a href='https://github.com/p4p1/p4p1/wiki'>wiki</a></u>.</p>";
+    } else {
+    }
 }
 
 function disp_larp(lang) {
