@@ -8,6 +8,7 @@ body {
     color: #000;
     margin: 0 0 0 30px;
     height:100%;
+    font-size: 20px;
     font-family: 'Abel';
     letter-spacing: 1px;
     overflow: hidden;
@@ -21,7 +22,6 @@ h1 {
     text-transform: uppercase;
     font-family: 'Teko';
     letter-spacing: 4px;
-    font-weight: 400;
     font-size: 50px;
 }
 
@@ -55,7 +55,20 @@ th {
     padding: 0 10px 0 10px;
 }
 
+.noscriptmsg {
+    position: absolute;
+    bottom:10px;
+    left:10px;
+    right:5px;
+    border: 1px solid rgb(173, 158, 79);
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    background-color: rgb(255, 233, 117);
+    color: rgb(94, 83, 27);
+}
+
 #box {
+    font-size:15px;
     background-color: #e0e0e0;
     color: #0f0f0f;
     position: relative;
@@ -85,6 +98,7 @@ th {
     height: 95%;
     margin: 0;
     padding: 30px;
+    overflow: scroll;
 }
 
 #language_changer {
