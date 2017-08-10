@@ -93,7 +93,7 @@
 
       <script src="scripts/url.js"></script>
       <script>
-          /*String.prototype.format = function() {
+          String.prototype.format = function() {
               var str = this;
               for (var i = 0; i < arguments.length; i++) {
                   var reg = new RegExp("\\{" + i + "\\}", "gm");
@@ -101,13 +101,16 @@
               }
               return str;
           }
+          function chane(el, no1, no2, no3) {
+              el.css("background-color", "rgb({0}, {1}, {2})".format(no1, no2, no3)).delay(800);
+          }
           $(document).ready(function(){
               $(".p_bar").hover(function(){
                   var no1 = 255;
                   var no2 = 255;
                   var no3 = 255;
                   while ( no1 > 0 && no2 > 0 && no3 > 0 ) {
-                      $(this).css("background-color", "rgb({0}, {1}, {2})".format(no1, no2, no3));
+                    window.setTimeout(chane($(this), no1, no2, no3), 600);
                       no1-=1;
                       no2-=1;
                       no3-=1;
@@ -115,6 +118,6 @@
               }, function(){
                   $(this).css("background-color", "white");
               });
-          });*/
+          });
       </script>
   </html>
