@@ -26,12 +26,18 @@
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<style>
+#slct_bar {
+    background-color: #e0e0e0;
+}
+</style>
+
     </head>
 
     <body>
 
         <div id="main">
-            <table id="navbar" style="width:100%">
+            <table id="navbar" style="width:90%">
                 <tr>
                     <th id="ttl" class="title"><a href="http://github.com/p4p1/"><img src="img/ls3.png" /></a></th>
                 </tr>
@@ -42,6 +48,7 @@
                 </tr>
                 <tr class="p_bar">
                   <th><a class="p_link" href="#">Work Experience</a></th>
+
                     <th></th>
                     <th></th>
                 </tr>
@@ -49,8 +56,9 @@
                     <th><a class="p_link" href="resume.html">Resume</a></th>
                     <th></th>    <!-- dont forget to add a download button to the resume -->
                     <th></th>
-                <tr class="p_bar">
+                <tr id="slct_bar" class="p_bar">
                     <th><a class="p_link" href="contact.html">Contact Me</a></th>
+                    <th>&gt;</th>
                     <th></th>
                     <th></th>
                 </tr>
