@@ -1,0 +1,1 @@
+/* script for the language updator */
