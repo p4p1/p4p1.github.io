@@ -37,10 +37,6 @@ a, a:visited, a:link, a:active {
     color: #000;
 }
 
-a:hover {
-    color: #FFE360;
-}
-
 p {
     font-family: 'Roboto';
     text-align: justify;
