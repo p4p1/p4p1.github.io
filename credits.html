@@ -25,14 +25,13 @@
         <!--================-->
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="style/jquery.color-2.1.2.min.js"></script> 
-
+        <script src="style/jquery.color-2.1.2.min.js"></script>
 <style>
 #slct_bar {
     background-color: #e0e0e0;
 }
-#box_content {
-    display: inline-block;
+#credits {
+    text-decoration: underline;
 }
 </style>
 
@@ -50,9 +49,8 @@
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
-                <tr id="slct_bar" class="p_bar">
-                  <th><a class="p_link" href="#">My Work</a></th>
-                    <th>&gt;</th>
+                <tr class="p_bar">
+                  <th><a class="p_link" href="my_work.html">My Work</a></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -61,7 +59,7 @@
                     <th></th>    <!-- dont forget to add a download button to the resume -->
                     <th></th>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="contact.html">Contact Me</a></th>
+                    <th id="cnt_link"><a class="p_link" href="contact.html">Contact Me</a></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -74,49 +72,14 @@
 
         <div id="box">
             <div id="box_content">
-                <table>
-                    <tr>
-                        <th><a href="#p4p1">p4p1</a></th>
-                        <th><a href="#larp">larp</a></th>
-                    </tr>
-                </table>
-                <hr / >
-                <div id="p4p1">
-                    <h2>p4p1</h2>
-                    <div>
-                        <p>It is a remote administration tool that I built to control
-                        Windows computers via the command line from a Linux system. The server sits
-                        on a Linux box waiting for clients to connect.</p>
-                        <img src="img/shell_ex.png" width="400px" height="200px"/>
-                        <p>When a client connects successfully you can then list the clients that are
-                        connected and then either send a command to all of them at once or initiate
-                        a shell with one an other</p>
-                        <img src="img/p4p1_prmpt.png" />
-                    </div>
-                </div>
-                <div id="larp">
-                    <h2>larp</h2>
-                    <div>
-                        <p>Also called Leo's ARP is a arpspoofing software. It sends ARP packets
-                        to the gateway and to all of the clients on the network. This alows you to
-                        filter all the packets on the network.</p>
-                        <img src="img/larp_cmd.png" />
-                        <p>Curently larp has a shell interface so that you can execute sniffer with the rules
-                        you wish to use on them. It will also include in the future more options like a stealth
-                        mode and an automatic config using cfg files.</p>
-
-                    </div>
-                </div>
-                <br /><br /><br /><br /><br />
-                <br /><br /><br /><br /><br />
-                <br /><br /><br /><br /><br />
-                <br /><br /><br /><br />
-                <br /><br /><br /><br />
-                <br /><br /><br /><br />
+                <h2>Credits:</h2>
+                <br />
+                <h4>Design Artist:</h3>
+                <p>Tatiana Relic-De Lima</p>
             </div>
         </div>
 
     </body>
 
-    <script src="scripts/url.js"></script>
+      <script src="scripts/url.js"></script>
   </html>
