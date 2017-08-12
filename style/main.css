@@ -116,6 +116,13 @@ th {
     text-decoration: none;
 }
 
+.p_bar:hover {
+    background-color: #e0e0e0;
+    -webkit-transition: background-color 600ms linear;
+    -ms-transition: background-color 600ms linear;
+    transition: background-color 600ms linear;
+}
+
 /*
  *-----------------------------------------------------------------+
  *|              changing file to resume.html style                |

@@ -29,14 +29,3 @@ function change_lang(l) {
     }
 
 }
-
-$(document).ready(function(){
-
-    $(".p_bar").hover(function(){
-        $(this).animate({backgroundColor: "#e0e0e0"});
-    }, function(){
-        $(this).animate({backgroundColor: "white"});
-        $("#slct_bar").animate({backgroundColor: "#e0e0e0"});
-    });
-
-});
