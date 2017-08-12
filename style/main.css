@@ -123,6 +123,14 @@ th {
     transition: background-color 600ms linear;
 }
 
+#lang {
+    float:left;
+}
+
+#credits {
+    float: right;
+}
+
 /*
  *-----------------------------------------------------------------+
  *|              changing file to resume.html style                |
