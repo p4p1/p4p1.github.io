@@ -33,10 +33,10 @@ function change_lang(l) {
 $(document).ready(function(){
 
     $(".p_bar").hover(function(){
-        $(this).delay(1000).css("background-color", "#e0e0e0");
+        $(this).animate({backgroundColor: "#e0e0e0"});
     }, function(){
-        $(this).css("background-color", "white");
-        $("#slct_bar").css("background-color", "#e0e0e0");
+        $(this).animate({backgroundColor: "white"});
+        $("#slct_bar").animate({backgroundColor: "#e0e0e0"});
     });
 
 });
