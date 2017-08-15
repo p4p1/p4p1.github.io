@@ -25,7 +25,7 @@
         <!--================-->
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="style/jquery.color-2.1.2.min.js"></script> 
+        <script src="style/jquery.color-2.1.2.min.js"></script>
 
 <style>
 #slct_bar {
@@ -78,11 +78,13 @@
                     <tr>
                         <th><a href="#p4p1">p4p1</a></th>
                         <th><a href="#larp">larp</a></th>
+                        <th><a href="#digip4p1">p4p1 USB Loader</a></th>
+                        <th><a href="#rpieth">Rpi USB to Ethernet gadget</a></th>
                     </tr>
                 </table>
                 <hr / >
                 <div id="p4p1">
-                    <h2>p4p1</h2>
+                    <h2>p4p1 | <a href="https://github.com/p4p1/p4p1">get here</a></h2>
                     <div>
                         <p>It is a remote administration tool that I built to control
                         Windows computers via the command line from a Linux system. The server sits
@@ -95,16 +97,43 @@
                     </div>
                 </div>
                 <div id="larp">
-                    <h2>larp</h2>
+                    <h2>larp | <a href="https://github.com/p4p1/larp">get here</a></h2>
                     <div>
                         <p>Also called Leo's ARP is a arpspoofing software. It sends ARP packets
                         to the gateway and to all of the clients on the network. This alows you to
                         filter all the packets on the network.</p>
-                        <img src="img/larp_cmd.png" />
+                        <img src="img/larp_cmd.png"/>
                         <p>Curently larp has a shell interface so that you can execute sniffer with the rules
                         you wish to use on them. It will also include in the future more options like a stealth
                         mode and an automatic config using cfg files.</p>
 
+                    </div>
+                </div>
+                <div id="digip4p1">
+                    <h2>p4p1 USB Loader</h2>
+                    <div>
+                        <p>USB stick to load p4p1.exe from an online repository to the
+                        machine it's plugged in. I used a digispark microcontroller with
+                        the USB keyboard library to use it as a keystroke injection tool.</p>
+                        <img src="img/digip4p1.jpg" width="400px" height="200px"/>
+                        <p>The microcontroller starts by opening the Windows Start Menu,
+                        it waits then 5 seconds before entering a big power shell command
+                        that will install the program in the startup folder and then it will
+                        reboot the machine, after agreeing to UAC.
+                        <br /> The Script:</p>
+                        <img src="img/digip4p1_img.png"/>
+                    </div>
+                </div>
+                <div id="rpieth">
+                    <h2>Rpi USB to Ethernet gadget</h2>
+                    <div>
+                        <p>This Raspberry Pi Zero, has a Ethernet port soldered on to it, so that it can share it's network
+                        to the computer it's plugged in</p>
+                        <img src="img/rpiz.jpg" width="400px" height="200px" />
+                        <p>You can connect to the Raspberry pi Zero using ssh via the USB port
+                        or the Ethernet one. The USB provides the data and the power to the pi and
+                        the ethernet the network. This gadget could be used to do some packet sniffing on a local network or just as
+                        a cheap ethernet to usb adaptator.</p>
                     </div>
                 </div>
                 <br /><br /><br /><br /><br />
