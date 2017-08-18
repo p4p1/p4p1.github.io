@@ -46,29 +46,29 @@
                     <th id="ttl" class="title"><a href="http://github.com/p4p1/"><img src="img/ls3.png" /></a></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="index.html">Presentation</a></th>
+                    <th><a id="l_presentation" class="p_link" href="index.html">Presentation</a></th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr id="slct_bar" class="p_bar">
-                  <th><a class="p_link" href="#">My Work</a></th>
+                    <th><a id="l_mywork" class="p_link" href="my_work.html">My Work</a></th>
                     <th>&gt;</th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="resume.html">Resume</a></th>
+                    <th><a id="l_resume" class="p_link" href="resume.html">Resume</a></th>
                     <th></th>    <!-- dont forget to add a download button to the resume -->
                     <th></th>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="contact.html">Contact Me</a></th>
+                    <th id="cnt_link"><a id="l_contactme" class="p_link" href="contact.html">Contact Me</a></th>
                     <th></th>
                     <th></th>
                 </tr>
             </table>
             <div id="language_changer" style="width:80%">
                 <p id="lang"><a class="l_link" onclick="change_lang('fr');" href="#">fr</a>/<a class="l_link" onclick="change_lang('en');" href="#">en</a></p>
-                <p id="credits"><a class="l_link" href="credits.html">Credits</a></p>
+                <p id="credits"><a id="l_credit" class="l_link" href="credits.html">Credits</a></p>
             </div>
         </div>
 
@@ -78,8 +78,8 @@
                     <tr>
                         <th><a href="#p4p1">p4p1</a></th>
                         <th><a href="#larp">larp</a></th>
-                        <th><a href="#digip4p1">p4p1 USB Loader</a></th>
-                        <th><a href="#rpieth">Rpi USB to Ethernet gadget</a></th>
+                        <th><a class="l_p4p1usbloader" href="#digip4p1">p4p1 USB Loader</a></th>
+                        <th><a class="l_rpiUSBgadget" href="#rpieth">Rpi USB to Ethernet gadget</a></th>
                     </tr>
                 </table>
                 <hr / >
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div id="digip4p1">
-                    <h2>p4p1 USB Loader</h2>
+                    <h2 class="l_p4p1usbloader">p4p1 USB Loader</h2>
                     <div>
                         <p>USB stick to load p4p1.exe from an online repository to the
                         machine it's plugged in. I used a digispark microcontroller with
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div id="rpieth">
-                    <h2>Rpi USB to Ethernet gadget</h2>
+                    <h2 class="l_rpiUSBgadget">Rpi USB to Ethernet gadget</h2>
                     <div>
                         <p>This Raspberry Pi Zero, has a Ethernet port soldered on to it, so that it can share it's network
                         to the computer it's plugged in</p>
@@ -148,4 +148,11 @@
     </body>
 
     <script src="scripts/url.js"></script>
-  </html>
+      <script src="scripts/lang.js"></script>
+      <script>
+        if ($_GET("lang") == "fr") {
+            translate_fr_navbar();
+            translate_fr_project_title();
+        }
+    </script>
+</html>

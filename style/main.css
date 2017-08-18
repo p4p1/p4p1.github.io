@@ -93,6 +93,7 @@ th {
 
 #box_content {
     height: 95%;
+    width:95%;
     margin: 0;
     padding: 30px;
     overflow: scroll;

@@ -45,28 +45,28 @@
                     <th id="ttl" class="title"><a href="http://github.com/p4p1/"><img src="img/ls3.png" /></a></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="index.html">Presentation</a></th>
+                    <th><a id="l_presentation" class="p_link" href="index.html">Presentation</a></th>
                     <th></th><!-- padding th -->
                     <th></th>
                 </tr>
                 <tr class="p_bar">
-                  <th><a class="p_link" href="my_work.html">My Work</a></th>
+                  <th><a id="l_mywork" class="p_link" href="my_work.html">My Work</a></th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="resume.html">Resume</a></th>
+                    <th><a id="l_resume" class="p_link" href="resume.html">Resume</a></th>
                     <th></th>    <!-- dont forget to add a download button to the resume -->
                     <th></th>
                 <tr class="p_bar">
-                    <th id="cnt_link"><a class="p_link" href="contact.html">Contact Me</a></th>
+                    <th id="cnt_link"><a id="l_contactme" class="p_link" href="contact.html">Contact Me</a></th>
                     <th></th>
                     <th></th>
                 </tr>
             </table>
             <div id="language_changer" style="width:80%">
                 <p id="lang"><a class="l_link" onclick="change_lang('fr');" href="#">fr</a>/<a class="l_link" onclick="change_lang('en');" href="#">en</a></p>
-                <p id="credits"><a class="l_link" href="credits.html">Credits</a></p>
+                <p id="credits"><a id="l_credit" class="l_link" href="credits.html">Credits</a></p>
             </div>
         </div>
 
@@ -80,4 +80,11 @@
     </body>
 
       <script src="scripts/url.js"></script>
+      <script src="scripts/lang.js"></script>
+      <script>
+        if ($_GET("lang") == "fr") {
+            translate_fr_navbar();
+            translate_fr_presentation();
+        }
+    </script>
   </html>
