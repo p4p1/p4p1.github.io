@@ -159,8 +159,26 @@ th {
  */
 
 .contact_link {
-    text-decoration: underline;
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    width:100%;
+    padding-top:25%;
 }
+
+.contact_link_div {
+    background-color: #bcbcbc;
+    width: 100px;
+    height: 100px;
+}
+
+.contact_link_img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+}
+
 .contact_link:hover {
   color: black;
 }
