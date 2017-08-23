@@ -167,9 +167,18 @@ th {
 }
 
 .contact_link_div {
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
     background-color: #bcbcbc;
     width: 100px;
     height: 100px;
+}
+
+.contact_link_div:hover {
+    background-color: #8e8e8e;
+    -webkit-transition: background-color 300ms ease-in-out;
+    -ms-transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
 }
 
 .contact_link_img {
