@@ -19,19 +19,6 @@ function translate_fr_navbar() {
     l_credit.href = "credits.html?lang=fr";
 }
 
-function translate_fr_project_title() {
-    var l_p4p1usbloader = document.getElementsByClassName('l_p4p1usbloader');
-    var l_rpiUSBgadget = document.getElementsByClassName('l_rpiUSBgadget');
-    var i = 0;
-
-    for( i = 0 ; i < l_p4p1usbloader.length; i++) {
-        l_p4p1usbloader[i].innerHTML = "inj&eacute;cteur USB p4p1";
-    }
-    for(i = 0; i < l_rpiUSBgadget.length; i++){
-        l_rpiUSBgadget[i].innerHTML = "Rpi gadget USB";
-    }
-}
-
 function translate_fr_presentation() {
     var title = document.getElementById('p_title');
     var main_para = document.getElementById('p_text');

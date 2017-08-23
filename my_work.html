@@ -78,8 +78,6 @@
                     <tr>
                         <th><a href="#p4p1">p4p1</a></th>
                         <th><a href="#larp">larp</a></th>
-                        <th><a class="l_p4p1usbloader" href="#digip4p1">p4p1 USB Loader</a></th>
-                        <th><a class="l_rpiUSBgadget" href="#rpieth">Rpi USB to Ethernet gadget</a></th>
                     </tr>
                 </table>
                 <hr / >
@@ -109,33 +107,6 @@
 
                     </div>
                 </div>
-                <div id="digip4p1">
-                    <h2 class="l_p4p1usbloader">p4p1 USB Loader</h2>
-                    <div>
-                        <p>USB stick to load p4p1.exe from an online repository to the
-                        machine it's plugged in. I used a digispark microcontroller with
-                        the USB keyboard library to use it as a keystroke injection tool.</p>
-                        <img src="img/digip4p1.jpg" width="400px" height="200px"/>
-                        <p>The microcontroller starts by opening the Windows Start Menu,
-                        it waits then 5 seconds before entering a big power shell command
-                        that will install the program in the startup folder and then it will
-                        reboot the machine, after agreeing to UAC.
-                        <br /> The Script:</p>
-                        <img src="img/digip4p1_img.png"/>
-                    </div>
-                </div>
-                <div id="rpieth">
-                    <h2 class="l_rpiUSBgadget">Rpi USB to Ethernet gadget</h2>
-                    <div>
-                        <p>This Raspberry Pi Zero, has a Ethernet port soldered on to it, so that it can share it's network
-                        to the computer it's plugged in</p>
-                        <img src="img/rpiz.jpg" width="400px" height="200px" />
-                        <p>You can connect to the Raspberry pi Zero using ssh via the USB port
-                        or the Ethernet one. The USB provides the data and the power to the pi and
-                        the ethernet the network. This gadget could be used to do some packet sniffing on a local network or just as
-                        a cheap ethernet to usb adaptator.</p>
-                    </div>
-                </div>
                 <br /><br /><br /><br /><br />
                 <br /><br /><br /><br /><br />
                 <br /><br /><br /><br /><br />
@@ -152,7 +123,6 @@
       <script>
         if ($_GET("lang") == "fr") {
             translate_fr_navbar();
-            translate_fr_project_title();
         }
     </script>
 </html>
