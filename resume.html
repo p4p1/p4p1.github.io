@@ -71,13 +71,20 @@
 
         <div id="box">
             <div id="box_content">
-                <div id="middle_text">
-                    <img width="100%" height="100%" src="img/resume-1.jpg" />
-                    <br />
-                    <br />
-                    <div id="dwnld_btn">
-                        <a href="upload/resume.pdf" id="dl_link">Download Resume</a>
-                    <div/>
+                <div id="img_div">
+                    <img id="resume_img" src="img/resume-1.jpg" />
+                </div>
+                <br />
+                <div id="img_navbar">
+                    <div class="imgb_div" id="next_image">
+                        <a class="l_img" onclick="change_img(0);">&lt;</a>
+                    </div>
+                    <div class="imgb_div" id="dwnld_btn">
+                        <a href="upload/resume.pdf" class="l_img" id="dl_link" style="font-size:14px">Download Resume</a>
+                    </div>
+                    <div class="imgb_div" id="back_image">
+                        <a class="l_img" onclick="change_img(1);">&gt;</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,6 +92,7 @@
     </body>
     <script src="scripts/url.js"></script>
       <script src="scripts/lang.js"></script>
+      <script src="scripts/img.js"></script>
       <script>
         if ($_GET("lang") == "fr") {
             translate_fr_navbar();

@@ -138,18 +138,35 @@ th {
  *-----------------------------------------------------------------+
  */
 
-#dwnld_btn {
-    border: 1px solid black;
-    border-radius: 5px;
-    color: white;
+#img_navbar{
+    width: 50%;
     display: inline-block;
-    padding: 5px 5px 5px 5px;
-    background-color:rgb(25, 25, 25);
 }
 
-#dl_link {
-    color: white;
+#resume_img {
+    width: 50%;
+}
+
+.l_img {
+    display: block;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
+    background-color: #bcbcbc;
+}
+
+.imgb_div {
+    text-align: center;
+    display: inline-block;
+    width: 32%;
+    height: 100%;
+}
+
+.l_img:hover {
+    background-color: #8e8e8e;
+    -webkit-transition: background-color 300ms ease-in-out;
+    -ms-transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
 }
 
 /*
