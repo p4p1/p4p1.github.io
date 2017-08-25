@@ -148,6 +148,7 @@ th {
 }
 #back_image {
     float: left;
+    visibility: hidden;
 }
 #dwnld_btn {
     float: right;
@@ -190,11 +191,11 @@ th {
 }
 
 .contact_link_div {
-    margin: 10px 10px 10px 10px;
+    margin: 15px 15px 15px 15px;
     display: inline-block;
     background-color: #bcbcbc;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .contact_link_div:hover {
