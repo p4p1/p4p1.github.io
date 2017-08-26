@@ -78,10 +78,10 @@
                 <div id="img_navbar">
                     </div>
                     <div class="imgb_div" id="dwnld_btn">
-                        <a href="upload/resume.pdf" class="l_img">Download Resume</a>
+                        <a href="upload/resume.pdf" id="l_dlbtn" class="l_img">Download Resume</a>
                     </div>
                     <div class="imgb_div" id="back_image">
-                        <a class="l_img" onclick="change_img(1);">More</a>
+                      <a class="l_img" id="l_mbtn" onclick="change_img(l);">More..</a>
                     </div>
                 </div>
             </div>
@@ -92,10 +92,13 @@
       <script src="scripts/lang.js"></script>
       <script src="scripts/img.js"></script>
       <script>
+        var l = 1;
         document.getElementById('back_image').style.visibility = "visible";
         if ($_GET("lang") == "fr") {
             translate_fr_navbar();
-            translate_fr_presentation();
+            translate_fr_img_navbar();
+            change_fr_img();
+            l = 0;
         }
     </script>
   </html>

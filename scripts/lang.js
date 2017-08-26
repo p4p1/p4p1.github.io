@@ -32,3 +32,18 @@ function translate_fr_contact() {
 
     title.innerHTML = "Contactez moi";
 }
+
+function translate_fr_img_navbar() {
+    var dl_btn = document.getElementById('l_dlbtn');
+    var mode_btn = document.getElementById('l_mbtn');
+
+    dl_btn.innerHTML = "T&eacute;l&eacute;charger le CV";
+    dl_btn.href = "upload/fr_resume.pdf";
+    mode_btn.innerHTML = "Plus..";
+}
+
+function change_fr_img() {
+    var img = document.getElementById('resume_img');
+
+    img.src="img/fr_resume-1.jpg";
+}
