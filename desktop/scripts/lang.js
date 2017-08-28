@@ -38,7 +38,7 @@ function translate_fr_img_navbar() {
     var mode_btn = document.getElementById('l_mbtn');
 
     dl_btn.innerHTML = "T&eacute;l&eacute;charger le CV";
-    dl_btn.href = "upload/fr_resume.pdf";
+    dl_btn.href = "../upload/fr_resume.pdf";
     mode_btn.innerHTML = "Plus..";
 }
 
