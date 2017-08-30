@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>redirection...</title>
+<style>
+
+html, body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+</style>
+    </head>
+
+    <body>
+        <h1>Click <a href="desktop/index.html">here</a> to be redirected on desktop version...</h1>
+        <h1>Click <a href="mobile/index.html">here</a> to be redirected on mobile version...</h1>
+    </body>
+
+    <script>
+
+function $_GET(param) {
+    var vars = {};
+    window.location.href.replace( location.hash, '' ).replace(
+        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function( m, key, value ) { // callback
+            vars[key] = value !== undefined ? value : '';
+        }
+    );
+
+    if ( param ) {
+        return vars[param] ? vars[param] : null;
+    }
+    vars;
+}
+
+function detectmob() {
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i) ){
+            return true;
+    } else {
+        return false;
+    }
+}
+
+function get_url() {
+    var url = document.URL;
+    var sys = $_GET('sys');
+    var page = $_GET('p');
+}
+
+if (detectmob()) {
+    document.location.href = "mobile/index.html";
+} else {
+    document.location.href = "desktop/index.html";
+}
+
+    </script>
+
+</html>
