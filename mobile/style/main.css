@@ -5,6 +5,7 @@ body, html {
     max-width: 100%;
     overflow-x: hidden;
     font-family: 'Abel';
+    background-color: #e0e0e0;
 }
 
 h1, p {
@@ -36,7 +37,8 @@ a {
     width: 100%;
     overflow: hidden;
     display: block;
-    padding: 10px 10px 10px 10px
+    padding: 10px 10px 10px 10px;
+    background-color: white;
 }
 
 #presentation_content {
@@ -48,7 +50,7 @@ a {
     background-color: #e0e0e0;
     height: 100%;
     width: 100%;
-    bottom: -1000;
+    /*bottom: -1000;*/
 }
 
 #contact_div {
@@ -66,7 +68,7 @@ a {
 }
 
 .contact_link_div {
-    margin: 15px 15px 15px 15px;
+    margin: 10px 10px 10px 10px;
     display: inline-block;
     background-color: #bcbcbc;
     width: 100px;
