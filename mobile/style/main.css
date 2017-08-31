@@ -54,9 +54,12 @@ a {
 }
 
 #contact_div {
-    width: 100%;
+    overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
+}
+#contact_div:hover {
+    background-color: #bcbcbc;
 }
 
 .contact_link {
@@ -70,7 +73,7 @@ a {
 .contact_link_div {
     margin: 10px 10px 10px 10px;
     display: inline-block;
-    background-color: #bcbcbc;
+    background-color: #999999;
     width: 100px;
     height: 100px;
 }
@@ -91,4 +94,10 @@ a {
 
 .contact_link:hover {
   color: black;
+}
+
+.img-circle {
+    border-radius: 50%;
+    float: left;
+    margin-right: 5px;
 }
