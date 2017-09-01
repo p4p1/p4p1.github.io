@@ -220,3 +220,10 @@ p {
     width: 50%;
     height: 50%;
 }
+
+/* ---------- MISC -------- */
+.img-circle {
+    border-radius: 50%;
+    float: left;
+    margin-right: 5px;
+}
