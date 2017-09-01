@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<!--
-  Recommended tabs = Soft tabs
-  Tab length recommended = 4
--->
 <html>
+
     <head>
         <title>p4p1</title>
-        <meta name="viewport" content="width=700px" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- fonts nad icon -->
         <link rel="icon" href="https://avatars1.githubusercontent.com/u/19672114?v=3&s=460" />
         <link href="https://fonts.googleapis.com/css?family=Teko|Roboto|Source+Code+Pro" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
         <!-- My style -->
-        <link href="style/main.css" rel="stylesheet" />
+        <link href="style/style.css" rel="stylesheet" />
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -29,84 +25,107 @@
     background-color: #e0e0e0;
 }
 </style>
-
     </head>
 
     <body>
 
-        <div id="main">
-            <table id="navbar" style="width:90%">
-                <tr>
-                    <th id="ttl" class="title"><a href="http://github.com/p4p1/"><img src="img/ls3.png" /></a></th>
-                </tr>
+        <div id="navbar" class="navbar">
+            <a href="http://github.com/p4p1/"><img id="logo_img" width="80%" src="img/ls3.png" /></a>
+            <table id="bar">
                 <tr id="slct_bar" class="p_bar">
-                    <th><a id="l_presentation" class="p_link" href="index.html">Presentation</a></th>
-                    <th>&gt;</th>
-                    <th></th><!-- padding th -->
-                    <th></th>
+                    <th><a id="l_presentation" class="p_link" href="index.html">Home</a></th>
                 </tr>
                 <tr class="p_bar">
-                  <th><a id="l_mywork" class="p_link" href="my_work.html">My Work</a></th>
-                    <th></th>
-                    <th></th>
+                    <th><a id="l_resume" class="p_link" href="upload/resume.pdf">Resume link</a></th>
+                <tr class="p_bar">
+                    <th id="cnt_link"><a id="l_contactme" class="p_link" href="#contact">Contact Info.</a></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a id="l_resume" class="p_link" href="resume.html">Resume</a></th>
-                    <th></th>    <!-- dont forget to add a download button to the resume -->
-                    <th></th>
-                <tr class="p_bar">
-                    <th id="cnt_link"><a id="l_contactme" class="p_link" href="contact.html">Contact Me</a></th>
-                    <th></th>
-                    <th></th>
+                    <th><a class="p_link" href="#projects">My Projects</a></th>
                 </tr>
             </table>
-            <div id="language_changer" style="width:80%">
-                <p id="lang"><a class="l_link" onclick="change_lang('fr');" href="#">fr</a>/<a class="l_link" onclick="change_lang('en');" href="#">en</a></p>
-                <p id="credits"><a id="l_credit" class="l_link" href="credits.html">Credits</a></p>
-            </div>
+            <noscript>
+                <div id="no_js">
+                    <h4>Dear nonjs users:</h4>
+                    <p>Thank you for visiting my website, I tried removing as much js as possible but i did not manage to to an onclick method for the hamburger icon. Please have a nice time browsing my website ;)</p>
+                </div>
+            </noscript>
         </div>
 
-        <div id="box">
-            <div id="box_content">
-                <div style="clear:left;">
-                  <!--<img style="float:left;margin-right:10px;" width="100px" height="100px" src="https://avatars1.githubusercontent.com/u/19672114?v=3&s=460" />-->
-                    <h2 id="p_title">Hello, my name is Leo Smith</h2>
-                    <p id="p_text">I'm a computer programmer
-                        who loves learning, working and experimenting with every languages.
-                        I'm currently an expert in C (networking, multithreading,
-                        Windows APIs...) and advanced in Python. I also learned the
-                        basics of PHP, HTML/CSS, JavaScript and Assembly basics for ARM
-                        Processors. I'm familiar with UNIX, OS X and Windows architectures.
-                        I understand most networking protocols.<br /> Apart from
-                        programming, I have experience in basic IoT with Raspberry Pi,
-                        Arduino and micro processors, as well as in computer security:
-                        I understand low level security (memory corruption,
-                        buffer overflow...) and higher level security too (XSS, CSRF...).
-                    </p>
-                </div>
-                <noscript>
-                    <div id="alert alert-warning" role="alert" class="noscriptmsg">
-                        <img src="https://3.bp.blogspot.com/-0YAAfhbWbK8/V85bbvTEv7I/AAAAAAAAAhY/kUK836tzsSw6dXdfUtRgngFWJUB3CqExACEw/s1600/Revitlink%2BDamien%2BWArnings.png" width="30px" heigth="30px"/>
-                        <details>
-                            <summary>Note to non js users</summary>
-                            <p>I am not the one to judge, I also disable Javascript sometimes.
-                            This is why I purposefully do not use track cookies nor Google tracking options.
-                            If you wish to use the translator functionality, You will have to use Javascript! <br />
-                            Thank you for reading, Have a good day</p>
-                        </details>
+        <div id="main" class="main">
+
+            <div id="header">
+                <div id="icn">
+                    <div class="container change" onclick="myFunction(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
                     </div>
-                </noscript>
+                </div>
             </div>
+
+            <!-- PRESENTATION SECTION -->
+            <div class="element" id="Presentation">
+                <h1>Presentation:</h1>
+                <p id="p_text">I'm a computer programmer who loves learning, working and experimenting with every languages. I'm currently an expert in C (networking, multithreading, Windows APIs...) and advanced in Python. I also learned the basics of PHP, HTML/CSS, JavaScript and Assembly basics for ARM Processors. I'm familiar with UNIX, OS X and Windows architectures. I understand most networking protocols.<br />
+                Apart from programming, I have experience in basic IoT with Raspberry Pi, Arduino and micro processors, as well as in computer security: I understand low level security (memory corruption, buffer overflow...) and higher level security too (XSS, CSRF...).</p>
+            </div>
+
+            <!-- RESUME SECTION -->
+            <div class="element" id="resume">
+                <h2>Get my resume <a href="upload/resume.pdf">here</a></h2>
+            </div>
+
+            <div class="element" id="contact">
+                <div class="contact_link_div"><a id="l_mail" class="contact_link" href="mailto:leo.smith@hotmail.fr"><img class="contact_link_img" src="https://cdn1.iconfinder.com/data/icons/simple-icons/2048/email-2048-black.png"></a></div>
+                <div class="contact_link_div"><a id="l_gh" class="contact_link" href="https://github.com/p4p1" target="_blank"><img class="contact_link_img" src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" /></a></div>
+                <div class="contact_link_div"><a id="l_upw" class="contact_link" href="https://www.upwork.com/freelancers/~0128f756f9eae0ded5" target="_blank"><img class="contact_link_img" src="https://lh3.googleusercontent.com/bZ8vcgdsrqHA0tot6EZiOprzt_aRXcYExBZ55OVP0CQRkl1EOD0UGY92teIIFAHiQA=w300"/></a></div>
+                <div class="contact_link_div"><a id="l_mail" class="contact_link" href="mailto:leo.smith@epitech.eu"><img class="contact_link_img" src="https://lh4.ggpht.com/sznQf6u_RQ5iGG8k2HpC7Y_kzWCSZctlLKHGsGKi66lhMICuRTQU-GfXB5IxTpbnth4=w300"></a></div>
+                <div class="contact_link_div"><a id="l_fb" class="contact_link" href="https://www.facebook.com/profile.php?id=100011448946175" target="_blank"><img class="contact_link_img" src="../desktop/img/fb.png"></a></div>
+            </div>
+
+            <div class="element" id="projects">
+                <h1>My Projects</h1>
+                <div id="p4p1">
+                    <h2>p4p1 | <a href="https://github.com/p4p1/p4p1">get here</a></h2>
+                    <div>
+                        <p>It is a remote administration tool that I built to control
+                        Windows computers via the command line from a Linux<br />system.
+                        The server sits on a Linux box waiting for clients to connect.</p>
+                        <img src="img/shell_ex.png" width="400px" height="200px"/>
+                        <p>When a client connects successfully you can then list the clients
+                        that are connected and then either send a<br />
+                        command to all of them at once or initiate a shell with one an other</p>
+                        <img src="img/p4p1_prmpt.png" />
+                    </div>
+                </div>
+                <div id="larp">
+                    <h2>larp | <a href="https://github.com/p4p1/larp">get here</a></h2>
+                    <div>
+                        <p>Also called Leo's ARP is a arpspoofing software. It sends ARP packets
+                        to the gateway and to all of the clients on the network. This alows you to
+                        filter all the packets on the network.</p>
+                        <img src="img/larp_cmd.png"/>
+                        <p>Curently larp has a shell interface so that you can execute sniffer with the rules
+                        you wish to use on them. It will also include in the future more options like a stealth
+                        mode and an automatic config using cfg files.</p>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </body>
 
-      <script src="scripts/url.js"></script>
-      <script src="scripts/lang.js"></script>
-      <script>
-        if ($_GET("lang") == "fr") {
-            translate_fr_navbar();
-            translate_fr_presentation();
-        }
+    <script>
+function myFunction(x) {
+        x.classList.toggle("change");
+        $(document).ready(function(){
+            $(".main").toggleClass("move_content");
+            $(".navbar").toggleClass("move_nav");
+        });
+}
     </script>
-  </html>
+
+</html>

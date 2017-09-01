@@ -1,0 +1,222 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Abel';
+    margin: 0px 0px 0px 0px;
+}
+
+table {
+    border: 0px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 5px 5px 5px 5px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'Teko';
+    letter-spacing: 4px;
+    font-size: 30px;
+    margin: 0 0 0 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0 0 30px 0;
+}
+
+a, a:visited, a:link, a:active {
+    color: #000;
+}
+
+p {
+    font-family: 'Roboto';
+    text-align: justify;
+}
+
+.navbar {
+    float: left;
+    height: 100%;
+    width: 25%;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation: nav_show 1s;
+    animation: nav_show 1s;
+}
+
+#header {
+    width: 100%;
+    height: 50px;
+}
+
+#bar {
+    margin-left: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 19px;
+}
+
+#no_js {
+    margin: 10px 10px 10px 10px;
+}
+
+.main {
+    background-color: #e0e0e0;
+    height: 100%;
+    width: 75%;
+    float: right;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation: contact_shrink 1s;
+    animation: contact_shrink 1s;
+    overflow:auto;
+}
+
+#logo_img {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.p_bar:hover {
+    background-color: #e0e0e0;
+    -webkit-transition: background-color 600ms linear;
+    -ms-transition: background-color 600ms linear;
+    transition: background-color 600ms linear;
+}
+
+.p_link {
+    text-decoration: none;
+}
+
+.l_link {
+    text-decoration: none;
+}
+
+.element {
+    margin: 10px 10px 10px 10px;
+    padding: 5px 5px 5px 5px;
+    background-color: #bcbcbc;
+}
+
+/* ------ ICON ANIMATION -------------- */
+#icn {
+    float:left;
+    position: absolute;
+    background-color:white;
+    padding: 5px 5px 0px 5px;
+}
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+
+
+/* -------- ANIMATION NAVBAR ------*/
+.move_nav {
+    -webkit-animation-timing-function: linear;
+    -webkit-animation: nav_hide 1s;
+    animation: nav_hide 1s;
+    width: 0%;
+}
+
+@-webkit-keyframes nav_show {
+    from {width: 0%;}
+    to {width: 25%;}
+}
+@keyframes nav_show {
+    from {width: 0%;}
+    to {width: 25%;}
+}
+
+@-webkit-keyframes nav_hide {
+    from {width: 25%;}
+    to {width: 0%;}
+}
+@keyframes nav_hide {
+    from {width: 25%;}
+    to {width: 0%;}
+}
+
+/* ----- ANIMATION CONTENT --------*/
+.move_content {
+    -webkit-animation-timing-function: linear;
+    -webkit-animation: contact_display 1s;
+    animation: contact_display 1s;
+    width: 100%;
+}
+@-webkit-keyframes contact_shrink {
+    from {width: 100%;}
+    to {width: 75%;}
+}
+@keyframes contact_shrink {
+    from {width: 100%;}
+    to {width: 75%;}
+}
+
+@-webkit-keyframes contact_display {
+    from {width: 75%;}
+    to {width: 100%;}
+}
+@keyframes contact_dispaly {
+    from {width: 75%;}
+    to {width: 100%;}
+}
+
+/* ------ CONTACT ------*/
+
+.contact_link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    width:100%;
+    padding-top:25%;
+}
+
+.contact_link_div {
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    background-color: #999999;
+    width: 100px;
+    height: 100px;
+}
+
+.contact_link_div:hover {
+    background-color: #8e8e8e;
+    -webkit-transition: background-color 300ms ease-in-out;
+    -ms-transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
+}
+
+.contact_link_img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+}
