@@ -21,9 +21,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="style/jquery.color-2.1.2.min.js"></script>
 <style>
-#slct_bar {
-    background-color: #e0e0e0;
-}
 </style>
     </head>
 
@@ -32,16 +29,22 @@
         <div id="navbar" class="navbar">
             <a href="http://github.com/p4p1/"><img id="logo_img" width="80%" src="img/ls3.png" /></a>
             <table id="bar">
-                <tr id="slct_bar" class="p_bar">
-                    <th><a id="l_presentation" class="p_link" href="index.html">Home</a></th>
+                <tr class="p_bar">
+                    <th><a id="l_presentation" class="p_link" href="#Presentation">Home</a></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a id="l_resume" class="p_link" href="#resume">Resume link</a></th>
+                    <th><a id="l_resume" class="p_link" href="#resume">Resume Link</a></th>
                 <tr class="p_bar">
                     <th id="cnt_link"><a id="l_contactme" class="p_link" href="#contact">Contact Info.</a></th>
                 </tr>
                 <tr class="p_bar">
-                    <th><a class="p_link" href="#current">Current activity</a></th>
+                    <th><a class="p_link" href="#current">Current Activity</a></th>
+                </tr>
+                <tr class="p_bar">
+                    <th><a class="p_link" href="#employement">Employement History</a></th>
+                </tr>
+                <tr class="p_bar">
+                    <th><a class="p_link" href="#skills">My Skills</a></th>
                 </tr>
                 <tr class="p_bar">
                     <th><a class="p_link" href="#projects">My Projects</a></th>
@@ -82,7 +85,7 @@
             <!-- RESUME SECTION -->
             <div class="anchor" id="resume"></div>
             <div class="element">
-                <h2>Get my resume:<h2>
+                <h1>Get my resume:<h1>
                         <h5>Download link <a href="upload/resume.pdf">here</a></h5>
             </div>
 
@@ -99,8 +102,46 @@
             <!-- CURRENTLY UP TO -->
             <div class="anchor" id="current"></div>
             <div class="element">
-                <h2>What I am currently up to:</h2>
+                <h1>What I am currently up to:</h1>
                 <p>I am currently studying at <a href="http://www.epitech.eu">Epitech</a> in France. But I am looking for part time employement to practice my programming skills.</p>
+            </div>
+
+            <!-- MY SKILLS -->
+            <div class="anchor" id="skills"></div>
+            <div class="element">
+                <h1>My skills</h1>
+                <p style="margin-bottom:0px">I have been programming for 4 years now. And I picked up 6 languages that I am comfortable using:</p>
+                <ul>
+                    <li>C</li>
+                    <li>HTML, CSS</li>
+                    <li>Python</li>
+                    <li>Nasm Assembly</li>
+                    <li>Bash</li>
+                    <li>Java</li>
+                </ul>
+                <p>I also love computer security and understand a few
+                low level security bug concepts. In addition to that
+                I did website penetration testing on
+                <a href="http://root-me.org">root-me</a> and other
+                websites. I am also a Frech / English bilangual</p>
+            </div>
+
+            <!-- EMPLOYMENT HISTORY -->
+            <div class="anchor" id="employement"></div>
+            <div class="element">
+                <h1>Employment History:</h1>
+                <div class="emp_div">
+                    <h3>Upwork - Programming assistance</h3>
+                    <p>Employer: Nav Chandra</p>
+                    <p>I wrote him a C function that request the source from a webpage and returns it inside of a string without using any API.</p>
+                    <h4>Client feedback -></h4>
+                    <p>Worked hard to address issues and did not give up.</p>
+                </div>
+                <div class="emp_div">
+                    <h3>Upwork - Python / C++</h3>
+                    <p>Employer: Yaki Noe</p>
+                    <p>Wrote a python script to execute different programs inside of a special invironement. The script monitors the input / output of each program and keeps the folder structure intact</p>
+                </div>
             </div>
 
             <!-- PROJECT SECTION -->
@@ -162,6 +203,7 @@ function myFunction(x) {
             $(".navbar").toggleClass("move_nav");
         });
 }
+
     </script>
 
 </html>

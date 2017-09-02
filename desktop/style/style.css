@@ -13,6 +13,9 @@ table {
 th {
     padding: 5px 5px 5px 5px;
 }
+ul {
+    margin: 0 0 0 0;
+}
 
 h1 {
     text-transform: uppercase;
@@ -34,6 +37,7 @@ a, a:visited, a:link, a:active {
 p {
     font-family: 'Roboto';
     text-align: justify;
+    margin: 0 0 0 0;
 }
 
 .navbar {
@@ -216,6 +220,13 @@ p {
     margin: auto;
     width: 50%;
     height: 50%;
+}
+
+/* -------- EMPLOYEMENT HIST ----- */
+.emp_div {
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    background-color: #999999;
 }
 
 /* ---------- MISC -------- */
