@@ -30,6 +30,7 @@ a:hover {
     margin: 10px 10px 10px 10px;
     padding: 5px 5px 5px 5px;
     background-color: #e3e4e5;
+    /*background-color: #f8f2e9;*/
 }
 
 .navbar {
@@ -160,6 +161,7 @@ a:hover {
     margin: 10px 10px 10px 10px;
     display: inline-block;
     background-color: #bcbcbc;
+    /*background-color: #f8dcb3;*/
     width: 70px;
     height: 70px;
 }
