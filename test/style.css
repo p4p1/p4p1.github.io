@@ -29,15 +29,14 @@ a:hover {
 .c_element {
     margin: 10px 10px 10px 10px;
     padding: 5px 5px 5px 5px;
-    background-color: #e3e4e5;
-    /*background-color: #f8f2e9;*/
+    /*background-color: #e3e4e5;  GRAY */
+    background-color: #f8f2e9;    /* YELLOW */
 }
 
 .navbar {
     float: left;
     height: 100%;
     width: 0%;
-    /*background-color: #722F37;*/
     background-color: #542329;
     animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
@@ -153,17 +152,22 @@ a:hover {
 
 /* ------------ presentation -------- */
 #contact_div {
-    overflow-y: hidden;
-    overflow-x: auto;
-    white-space: nowrap;
+    /*overflow-y: hidden;
+    overflow-x: auto;*/
 }
 .contact_link_div {
-    margin: 10px 10px 10px 10px;
+    margin: 2px 2px 2px 2px;
     display: inline-block;
-    background-color: #bcbcbc;
-    /*background-color: #f8dcb3;*/
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+}
+
+.con_link_div_addcolor {
+    -moz-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    background-color: #74333b; /* YELLOW */
 }
 
 .l_c {
