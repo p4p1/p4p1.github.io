@@ -160,14 +160,16 @@ a:hover {
     display: inline-block;
     width: 60px;
     height: 60px;
+    background-color: #74333b; /* red ish */
+    visibility: hidden;
 }
 
 .con_link_div_addcolor {
-    -moz-transition: all .5s ease-in;
-    -o-transition: all .5s ease-in;
-    -webkit-transition: all .5s ease-in;
-    transition: all .5s ease-in;
-    background-color: #74333b; /* YELLOW */
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+    visibility: visible;
 }
 
 .l_c {
