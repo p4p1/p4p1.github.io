@@ -154,12 +154,13 @@ a:hover {
 #contact_div {
     /*overflow-y: hidden;
     overflow-x: auto;*/
+    margin-left: 5px;
 }
 .contact_link_div {
     margin: 2px 2px 2px 2px;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: #74333b; /* red ish */
     visibility: hidden;
 }
