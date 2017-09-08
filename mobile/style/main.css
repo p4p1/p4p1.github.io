@@ -71,11 +71,11 @@ a {
 }
 
 .contact_link_div {
-    margin: 10px 10px 10px 10px;
+    margin: 2px 2px 2px 2px;
     display: inline-block;
     background-color: #999999;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 .contact_link_div:hover {
