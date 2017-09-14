@@ -11,10 +11,11 @@ a:hover {
     text-decoration: underline;
 }
 
-#n_table {
+.n_table {
     text-align:left;
     font-family: 'Ubuntu', sans-serif;
-    margin: 10px 10px 10px 10px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
 }
 
 #images {
@@ -24,6 +25,14 @@ a:hover {
 .nt_th {
     color: white;
     font-size:100%;
+}
+
+.nt_th:hover {
+    background-color: #3d191e;
+}
+
+.nnt_th:hover {
+    background-color: #210d10;
 }
 
 .c_element {
