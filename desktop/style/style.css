@@ -233,7 +233,9 @@ p {
 .img-circle {
     border-radius: 50%;
     float: left;
+    position: relative;
     margin-right: 5px;
+    bottom: 1px;
 }
 
 .anchor {
