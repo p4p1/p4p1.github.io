@@ -17,9 +17,10 @@ a:hover {
 
 .n_table {
     text-align:left;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Kanit Semibold', sans-serif;
     width: 100%;
     margin: 10px 0px 10px 0px;
+    font-style: italic;
 }
 
 #images {
@@ -28,19 +29,18 @@ a:hover {
 
 .nt_th, .nnt_th {
     color: white;
-    font-size:100%;
+    font-size: 18px;
     padding: 2px 0px 2px 10px;
 }
 
 .nnt_th, .nn_table{
-    font-size: 0%;
-    height: 0%;
-    padding: 0 0 0 0;
-    visibility: hidden;
+    font-size: 18px;
+    height: 100%;
+    left-padding: 5px;
 }
 
 .nt_th:hover {
-    background-color: #3d191e;
+    background-color: #6f3f46;
 }
 
 .nnt_th:hover {
@@ -180,18 +180,9 @@ a:hover {
 .contact_link_div {
     margin: 2px 2px 2px 2px;
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: #74333b; /* red ish */
-    visibility: hidden;
-}
-
-.con_link_div_addcolor {
-    -moz-transition: all 1s linear;
-    -o-transition: all 1s linear;
-    -webkit-transition: all 1s linear;
-    transition: all 1s linear;
-    visibility: visible;
+    width: 75px;
+    height: 75px;
+    background-color: #c1b8aa; /* red ish */
 }
 
 .l_c {
@@ -220,4 +211,15 @@ a:hover {
 .padding {
     width: 100%;
     height: 10px;
+}
+
+.back_icon {
+    margin: 10px 10px 10px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+#copyr {
+    color: white;
+    margin: 20px 10px 10px 10px;
 }
