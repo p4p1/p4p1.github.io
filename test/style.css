@@ -19,6 +19,7 @@ a:hover {
     text-align:left;
     font-family: 'Kanit Semibold', sans-serif;
     width: 100%;
+    height: 50%;
     margin: 10px 0px 10px 0px;
     font-style: italic;
 }
@@ -31,6 +32,7 @@ a:hover {
     color: white;
     font-size: 18px;
     padding: 2px 0px 2px 10px;
+    /*border-bottom:1px solid white;*/
 }
 
 .nnt_th, .nn_table{
@@ -61,8 +63,8 @@ a:hover {
     background-color: #542329;
     animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: nav_hide 1s;
-    animation: nav_hide 1s;
+    -webkit-animation: nav_hide 0.2s;
+    animation: nav_hide 0.2s;
 }
 
 .content {
@@ -71,14 +73,19 @@ a:hover {
     width: 100%;
     animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
-    -webkit-animation: contact_display 1s;
-    animation: contact_display 1s;
+    -webkit-animation: contact_display 0.2s;
+    animation: contact_display 0.2s;
 }
 
 #element_container {
     width: 100%;
     height: 85%;
     overflow: auto;
+}
+
+#navbar_container {
+    margin:auto;
+    height: 100%;
 }
 
 #n_img {
@@ -123,8 +130,8 @@ a:hover {
 /* -------- ANIMATION NAVBAR ------*/
 .move_nav {
     -webkit-animation-timing-function: linear;
-    -webkit-animation: nav_show 1s;
-    animation: nav_show 1s;
+    -webkit-animation: nav_show 0.5s;
+    animation: nav_show 0.5s;
     width: 35%;
 }
 
@@ -149,8 +156,8 @@ a:hover {
 /* ----- ANIMATION CONTENT --------*/
 .move_content {
     -webkit-animation-timing-function: linear;
-    -webkit-animation: contact_shrink 1s;
-    animation: contact_shrink 1s;
+    -webkit-animation: contact_shrink 0.5s;
+    animation: contact_shrink 0.5s;
     width: 65%;
 }
 @-webkit-keyframes contact_shrink {
@@ -222,4 +229,16 @@ a:hover {
 #copyr {
     color: white;
     margin: 20px 10px 10px 10px;
+}
+
+.separator {
+    background-color: white;
+    color: white;
+    height: 1px;
+    border: none;
+}
+
+.hide_sep {
+    background-color: #654444;
+    color: #654444;
 }
