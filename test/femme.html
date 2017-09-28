@@ -22,86 +22,51 @@ body, html {
 
     <body>
 
-        <div class="navbar">
+        <div id="navbar" class="navbar">
             <div class="padding"></div>
-            <table class="n_table">
-                <!-- AJOUTER UN ONGLET
+            <div id="navbar_container">
+                <h1 style="color:white;font-size: 100%; margin:10px 10px 10px 10px"># Navigation</h1>
+                <table class="n_table">
+                    <!-- AJOUTER UN ONGLET
+                        <tr>
+                            <th class="nt_th"><a href="lien vers la page.html">Titre de la page</a></th>
+                        </tr>
+                    -->
                     <tr>
-                        <th class="nt_th"><a href="lien vers la page.html">Titre de la page</a></th>
+                        <th class="nt_th"><a href="index.html">Accueil</a></th>
                     </tr>
-                -->
-                <tr>
-                    <th class="nt_th"><a href="index.html">Accueil</a></th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th class="nt_th"><a href="presentation.html">Pr&eacute;sentation</a></th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th class="nt_th"><a href="nouvelle_collection.html">Nouvelle Collection</a></th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th class="nt_th"><a href="homme.html">Homme</a>
-                        <table class="n_table">
-                            <!-- AJOUTER UN SOUS ONGLET
-                                <tr>
-                                    <th class="nnt_th"><a href="page.html#marker">titre de la sous page</a></th>
-                                </tr>
-                            -->
-                            <tr>
-                                <th class="nnt_th"><a href="homme.html#Tshirt">T-Shirt</a></th>
-                            </tr>
-                            <tr>
-                                <th class="nnt_th"><a href="homme.html#Tshirt-Baseball">T-Shirt Baseball</a></th>
-                            </tr>
-                            <tr>
-                                <th class="nnt_th"><a href="homme.html#sweat">Sweat</a></th>
-                            </tr>
-                        </table>
-                    </th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th class="nt_th"><a href="femme.html">Femme</a>
-                        <table class="n_table">
-                            <!-- AJOUTER UN SOUS ONGLET
-                                <tr>
-                                    <th class="nnt_th"><a href="page.html#marker">titre de la sous page</a></th>
-                                </tr>
-                            -->
-                            <tr>
-                                <th class="nnt_th"><a href="femme.html#debardeur">D&eacute;bardeur</a></th>
-                            </tr>
-                            <tr>
-                                <th class="nnt_th"><a href="femme.html#Tshirt">T-Shirt</a></th>
-                            </tr>
-                            <tr>
-                                <th class="nnt_th"><a href="femme.html#short">Shorts</a></th>
-                            </tr>
-                            <tr>
-                                <th class="nnt_th"><a href="femme.html#brassieres">Brassi&egrave;res</a></th>
-                            </tr>
-                        </table>
-                    </th>
-                </tr>
-                <tr></tr>
-                <tr>
-                    <th class="nt_th">
-                        <a href="nos_ath.html">Nos athl&egrave;tes</a>
-                    </th>
-                </tr>
-            </table>
-            <div id="contact_div">
-                <!-- AJOUTER UN LIEN
-                    <div class="contact_link_div"><a class="l_c" href="lienexterne" target="_blank"><img class="c_img" src="icon qui represente le lien" /></a></div>
-                -->
-                    <div class="contact_link_div"><a class="l_c" href="http://aocathlete.tictail.com/" target="_blank"><img class="c_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ic_shopping_cart_48px.svg/1024px-Ic_shopping_cart_48px.svg.png" /></a></div>
-                    <div class="contact_link_div"><a class="l_c" href="https://www.instagram.com/aoc_athlete" target="_blank"><img class="c_img" src="https://maxcdn.icons8.com/Share/icon/win8/Logos//instagram_new1600.png"/></a></div>
-                    <div class="contact_link_div"><a class="l_c" href="https://www.facebook.com/aocathlete/" target="_blank"><img class="c_img" src="img/fb.png"></a></div>
-                    <div class="contact_link_div"><a class="l_c" href="mailto:aocathlete@gmail.com"><img class="c_img" src="img/email.png" /></a></div>
-                </div>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th"><a href="presentation.html">Information</a></th>
+                    </tr>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th"><a href="nouvelle_collection.html">Nouvelle Collection</a></th>
+                    </tr>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th"><a onclick="disp_homme()">Homme &gt;
+                        </th>
+                    </tr>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th"><a onclick="disp_femme()">Femme &gt;</a>
+                        </th>
+                    </tr>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th">
+                            <a href="nos_ath.html">Nos athl&egrave;tes</a>
+                        </th>
+                    </tr>
+                    <tr class="separator"><th></th></tr>
+                    <tr>
+                        <th class="nt_th">
+                            <h4>&copy; Copyright AOC - 2017</h4>
+                        </th>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="content">
             <div id="header">
@@ -150,20 +115,6 @@ body, html {
 
     </body>
 
-    <script>
-function detectmob() {if( navigator.userAgent.match(/Android/i)|| navigator.userAgent.match(/webOS/i)|| navigator.userAgent.match(/iPhone/i)|| navigator.userAgent.match(/iPad/i)|| navigator.userAgent.match(/iPod/i)|| navigator.userAgent.match(/BlackBerry/i)|| navigator.userAgent.match(/Windows Phone/i) ){return true;} else {return false;}}
-
-
-function myFunction(x) {
-        x.classList.toggle("change");
-        $(document).ready(function(){
-            $(".content").toggleClass("move_content");
-            $(".navbar").toggleClass("move_nav");
-            $(".contact_link_div").toggleClass("con_link_div_addcolor");
-        });
-}
-
-
-    </script>
+    <script src="scripts.js"></script>
 
 </html>
