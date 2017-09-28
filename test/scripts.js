@@ -15,7 +15,7 @@ function disp_homme() {
 }
 
 function disp_femme() {
-    document.getElementById("navbar_container").innerHTML = '<h1 style="color:white;font-size: 100%; margin:10px 10px 10px 10px"># Homme</h1><table class="n_table"><tr><th class="nt_th"><a href="femme.html#debardeur">D&eacute;bardeur</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#Tshirt">T-Shirt</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#short">Shorts</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#brassieres">Brassi&egrave;res</th></tr><tr class="separator hide_sep"><th></th></tr></table><h1 class="back_icon"><a onclick="disp_ind()"><img width="50px" src="img/back.png"></a></h1>';
+    document.getElementById("navbar_container").innerHTML = '<h1 style="color:white;font-size: 100%; margin:10px 10px 10px 10px"><a href="femme.html"># Femme</a></h1><table class="n_table"><tr><th class="nt_th"><a href="femme.html#debardeur">D&eacute;bardeur</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#Tshirt">T-Shirt</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#short">Shorts</a></th></tr><tr class="separator hide_sep"><th></th></tr><tr><th class="nt_th"><a href="femme.html#brassieres">Brassi&egrave;res</th></tr><tr class="separator hide_sep"><th></th></tr></table><h1 class="back_icon"><a onclick="disp_ind()"><img width="50px" src="img/back.png"></a></h1>';
 }
 
 function disp_ind() {
