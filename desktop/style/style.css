@@ -44,7 +44,7 @@ p {
 .navbar {
     float: left;
     height: 100%;
-    width: 25%;
+    width: 15%;
     animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
     -webkit-animation: nav_show 1s;
@@ -57,6 +57,7 @@ p {
 }
 
 #bar {
+    margin-top: 20px;
     margin-left: 10px;
     width: 100%;
     text-align: left;
@@ -70,7 +71,7 @@ p {
 .main {
     background-color: #e0e0e0;
     height: 100%;
-    width: 75%;
+    width: 85%;
     float: right;
     animation-timing-function: linear;
     -webkit-animation-timing-function: linear;
@@ -150,19 +151,19 @@ p {
 
 @-webkit-keyframes nav_show {
     from {width: 0%;}
-    to {width: 25%;}
+    to {width: 15%;}
 }
 @keyframes nav_show {
     from {width: 0%;}
-    to {width: 25%;}
+    to {width: 15%;}
 }
 
 @-webkit-keyframes nav_hide {
-    from {width: 25%;}
+    from {width: 15%;}
     to {width: 0%;}
 }
 @keyframes nav_hide {
-    from {width: 25%;}
+    from {width: 15%;}
     to {width: 0%;}
 }
 
@@ -175,19 +176,19 @@ p {
 }
 @-webkit-keyframes contact_shrink {
     from {width: 100%;}
-    to {width: 75%;}
+    to {width: 85%;}
 }
 @keyframes contact_shrink {
     from {width: 100%;}
-    to {width: 75%;}
+    to {width: 85%;}
 }
 
 @-webkit-keyframes contact_display {
-    from {width: 75%;}
+    from {width: 85%;}
     to {width: 100%;}
 }
 @keyframes contact_dispaly {
-    from {width: 75%;}
+    from {width: 85%;}
     to {width: 100%;}
 }
 
