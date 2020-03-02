@@ -1,66 +1,361 @@
 <!DOCTYPE html>
-<html>
+<!--
+    Purple - #9315b7
+    Black - #353334
+-->
+<html lang="en">
 
-    <head>
-        <title>redirecting...</title>
-<style>
+<head>
 
-html, body {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-</style>
-    </head>
+  <title>Leo Smith - Portfolio</title>
 
-    <body>
-        <h1>Click <a href="desktop/index.html">here</a> to be redirected on desktop version...</h1>
-        <h1>Click <a href="mobile/index.html">here</a> to be redirected on mobile version...</h1>
-    </body>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-function $_GET(param) {
-    var vars = {};
-    window.location.href.replace( location.hash, '' ).replace(
-        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-        function( m, key, value ) { // callback
-            vars[key] = value !== undefined ? value : '';
-        }
-    );
+  <!-- Custom styles for this template -->
+  <link href="css/resume.css" rel="stylesheet">
 
-    if ( param ) {
-        return vars[param] ? vars[param] : null;
-    }
-    vars;
-}
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
-function detectmob() {
-    if( navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i)
-        || navigator.userAgent.match(/iPod/i)
-        || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i) ){
-            return true;
-    } else {
-        return false;
-    }
-}
+</head>
 
-function get_url() {
-    var url = document.URL;
-    var sys = $_GET('sys');
-    var page = $_GET('p');
-}
+<body id="page-top">
 
-if (detectmob()) {
-    document.location.href = "mobile/index.html";
-} else {
-    document.location.href = "desktop/index.html";
-}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Leo Smith</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://media-exp1.licdn.com/dms/image/C5603AQFGzYQPNRm6HA/profile-displayphoto-shrink_200_200/0?e=1588809600&v=beta&t=Ty5P-ULYrvpaS5zuej2OAHeE0cGehecMYrRX31BFQ5c" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    </script>
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0">Leo
+          <span class="text-primary">Smith</span>
+        </h1>
+        <div class="subheading mb-5">+33 (0) 6 52 48 66 18
+          <a href="mailto:leo.smith@epitech.eu">leo.smith@epitech.eu</a>
+        </div>
+        <p class="lead mb-5">Self taught passionate Computer Security researcher that enjoys working and researching on new technologies.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/leo-smith-1bab2a156/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/p4p1/">
+            <i class="fab fa-github"></i>
+          </a>
+          <!--<a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>-->
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Experience</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Technical Assistant</h3>
+            <div class="subheading mb-3">Web@academie - Coding Academie</div>
+            <p>Helping students finish their school projects by helping them finding solutions to complex problems. Created a Capture The Flag (CTF) to teach them web pentesting in a more interactive way. Held ceminars to teach cyber security principles.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2019 - July 2020</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Solution Provider</h3>
+            <div class="subheading mb-3">Junior Conseil Taker</div>
+            <p>Worked on critical projects to negociate in case of disputes. Managed directly teams of developpers to finish assignements. Propected to find new clients for Taker.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">October 2019 - August 2020</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Mobile developper</h3>
+            <div class="subheading mb-3">Junior Conseil Taker</div>
+            <p>Worked on an android/IOS mobile app in React Native for a sports company. Facebook like project with messaging system and posts</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">December 2018 - August 2019</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Cyber Security Intern</h3>
+            <div class="subheading mb-3">Societe Generale</div>
+            <p>Intern in a bank. Working directly with the pentest and assessment team to create documents on how to audit code and protect yourself from major security flaws.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2018 - December 2018</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Summer Auxillary</h3>
+            <div class="subheading mb-3">Societe Generale</div>
+            <p>Worked in a bank for client reception and document archiving</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">August 2017 - September 2017</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Website Developer</h3>
+            <div class="subheading mb-3">AOC</div>
+            <p>Created a landing page for a clothing brand in HTML/CSS/JS.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">August 2017 - September 2017</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">C Developer</h3>
+            <div class="subheading mb-3">UpWork</div>
+            <p>Created a library to handle HTTP requests for a web-browser project.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">August 2017 - September 2017</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Python Developer</h3>
+            <div class="subheading mb-3">UpWork</div>
+            <p>Created a Multi-threaded script to test projects output automatically.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">Febuary 2017 - August 2017</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">EPITECH - European Institute of Technology</h3>
+            <div class="subheading mb-3">Expert in technology of information</div>
+            <div>Computer Science</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2017 - 2022</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Gustave Eiffel High School</h3>
+            <div class="subheading mb-3">Baccalaureat in computer science</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2014 - 2017</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <ul class="list-inline dev-icons">
+          <li class="list-inline-item">
+            <i class="fab fa-cuttlefish"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-html5"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-css3-alt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-js-square"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-react"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-node-js"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-php"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-java"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-npm"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-docker"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-trello"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-raspberry-pi"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-microchip"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-network-wired"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-wifi"></i>
+          </li>
+        </ul>
+
+        <div class="subheading mb-3">Other Skills</div>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Pentesting Web</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Pentesting Server</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Code audit</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Social Engineering</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Reverse Engineering</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            ISO 27005</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+      <div class="w-100">
+        <h2 class="mb-5">Interests</h2>
+        <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+        <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+      </div>
+    </section>
+
+    <!--
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+      <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Google Analytics Certified Developer</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Mobile Web Specialist - Google Certification</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            2<sup>nd</sup>
+            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - James Buchanan High School - Hackathon 2006</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            3<sup>rd</sup>
+            Place - James Buchanan High School - Hackathon 2005</li>
+        </ul>
+      </div>
+    </section> -->
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
+
+</body>
 
 </html>
