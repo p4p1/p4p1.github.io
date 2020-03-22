@@ -2,8 +2,22 @@
  * Javascript file for keyboard events :)
  */
 
+function getDarkcookie() {
+  var allcookies = document.cookie;
+  var cookieArray = allcookies.split(';');
+
+  for (var i = 0; i < cookieArray.length; i++) {
+    if (cookieArray[i].split('=')[0] == "dark") {
+      return (Number(cookieArray[i].split('=')[1]));
+    }
+  }
+  document.cookie="dark=0";
+  console.log(document.cookie);
+  return (0);
+}
+
 document.addEventListener('keypress', logKey);
-let dark = 0;
+let dark = getDarkcookie();
 
 function logKey(e) {
     var h1Elements = document.getElementsByTagName("h1");
@@ -12,8 +26,8 @@ function logKey(e) {
     var h4Elements = document.getElementsByTagName("h4");
     var hrElements = document.getElementsByTagName("hr");
     if (e.key === 'b') {
-      console.log("HERE");
       if (dark == 0) {
+        document.cookie = "dark=1";
         document.body.style.backgroundColor = "#353333"
         document.body.style.color = "#FFFFFF"
         for(var i = 0; i < h1Elements.length; i++) {
@@ -33,6 +47,7 @@ function logKey(e) {
         }
         dark = 1;
       } else {
+        document.cookie = "dark=0";
         dark = 0;
         document.body.style.backgroundColor = "#FFFFFF"
         document.body.style.color = "#868e96"
