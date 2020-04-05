@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>wallpaper-gen</title>
+        <script src="https://kit.fontawesome.com/97e00ab055.js" crossorigin="anonymous"></script>
+    </head>
+    <style>
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: #495057;
+}
+p {
+    margin-top: 0;
+}
+#sizeForm {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -25%;
+    margin-left: -25%;
+}
+#container {
+}
+#canvaContainer {
+    padding: 10px 10px 10px 10px;
+}
+#myCanvas {
+}
+div.hidden {
+    visibility: hidden;
+}
+div.hide {
+    visibility: hidden;
+}
+.input_num {
+    width: 50px;
+}
+i {
+}
+i.selected {
+    color: red;
+}
+#buttons {
+    display: flex;
+    margin: 0 auto;
+        width: 100px;
+}
+.button {
+    flex-basis: 50%;
+}
+table {
+    margin: 0 auto;
+}
+    </style>
+    <body>
+        <div id="container">
+            <div id="sizeForm">
+                <h1>Wallpaper-gen</h1>
+                <div id="buttons">
+                    <div class="button">
+                        <i id="screenBtn" class="fas fa-tv"></i>
+                    </div>
+                    <div class="button">
+                        <i id="mobileButn" class="fas fa-mobile-alt selected"></i>
+                    </div>
+                </div>
+                <div id="computer_size" class="hide">
+                    <table>
+                        <tr>
+                            <th>height</th>
+                            <th>x</th>
+                            <th>width</th>
+                        </tr>
+                        <tr>
+                            <th><input class="input_num" type="number" id="input_height" min="0" /></th>
+                            <th>x</th>
+                            <th><input class="input_num" type="number" id="input_width" min="0" /></th>
+                            <th><input type="button" value="OK" onclick="validate_num()" /></th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="phone_size">
+                    <select id="ph_size">
+                        <option>Select a screen type</option>
+                        <option value="galaxy_s5">Galaxy S5</option>
+                        <option value="pixel2">Pixel2</option>
+                        <option value="pixel2xl">Pixel2 XL</option>
+                        <option value="iphone5">Iphone 5/SE</option>
+                        <option value="ipad">iPad</option>
+                    </select>
+                </div>
+                <div id="canvaContainer" class="hidden">
+                    <input type="file" id="inp">
+                    <input type="button" value="generate" onclick="generate()">
+                </div>
+            </div>
+
+            <canvas id="myCanvas">
+                your browser does not support HTML5 canvas!
+            </canvas>
+        </div>
+    </body>
+    <script>
+        var height = 0;
+        var width = 0;
+        var imgNum = 0;
+        var size = 0;
+        var images = [];
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+
+        function validate_num() {
+            height = document.getElementById("input_height").value;
+            width = document.getElementById("input_width").value;
+            document.getElementById("canvaContainer").classList.remove('hidden');
+            document.getElementById("myCanvas").style.width = width+"px";
+            document.getElementById("myCanvas").style.height= height+"px";
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        document.getElementById('inp').onchange = function(e) {
+              var img = new Image();
+              img.onerror = failed;
+              img.src = URL.createObjectURL(this.files[0]);
+              images.push(img);
+              imgNum++;
+              size = Math.sqrt((width*height) / imgNum);
+        };
+        function draw() {
+              canvas.width = width;
+              canvas.height = height;
+              posx += size;
+              posy += size;
+        }
+        function generate() {
+            var inc = 0;
+            for (var i = 0; i < height; i+=size) {
+                for (var j = 0; j < width; j+=size) {
+                    ctx.drawImage(images[inc], 0,0, images[inc].width, images[inc].height,
+                        j, i, size, size);
+                    inc++;
+                }
+            }
+        }
+        function failed() {
+              console.error("The provided file couldn't be loaded as an Image media");
+        }
+        document.getElementById("screenBtn").onclick = function() {
+            document.getElementById("computer_size").classList.remove("hide");
+            document.getElementById("mobileButn").classList.remove("selected");
+            document.getElementById("screenBtn").classList.add("selected");
+            document.getElementById("phone_size").classList.add("hide");
+        }
+        document.getElementById("mobileButn").onclick = function() {
+            document.getElementById("computer_size").classList.add("hide");
+            document.getElementById("mobileButn").classList.add("selected");
+            document.getElementById("screenBtn").classList.remove("selected");
+            document.getElementById("phone_size").classList.remove("hide");
+        }
+    </script>
+</html>
