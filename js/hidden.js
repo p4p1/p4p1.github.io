@@ -11,20 +11,41 @@ function getDarkcookie() {
       return (Number(cookieArray[i].split('=')[1]));
     }
   }
-  document.cookie="dark=0";
+  document.cookie+="dark=0";
   console.log(document.cookie);
   return (0);
 }
 
 document.addEventListener('keypress', logKey);
 let dark = getDarkcookie();
+console.log(dark);
+var h1Elements = document.getElementsByTagName("h1");
+var h2Elements = document.getElementsByTagName("h2");
+var h3Elements = document.getElementsByTagName("h3");
+var h4Elements = document.getElementsByTagName("h4");
+var hrElements = document.getElementsByTagName("hr");
+if (dark == 1) {
+    document.body.style.backgroundColor = "#353333"
+    document.body.style.color = "#FFFFFF"
+    for(var i = 0; i < h1Elements.length; i++) {
+         h1Elements[i].style.color = "#fff";
+    }
+    for(var i = 0; i < h2Elements.length; i++) {
+         h2Elements[i].style.color = "#fff";
+    }
+    for(var i = 0; i < h3Elements.length; i++) {
+         h3Elements[i].style.color = "#fff";
+    }
+    for(var i = 0; i < h4Elements.length; i++) {
+         h4Elements[i].style.color = "#fff";
+    }
+    for(var i = 0; i < hrElements.length; i++) {
+         hrElements[i].style.borderTop = "1px solid rgba(255, 255, 255, 0.1)";
+    }
+}
 
 function logKey(e) {
-    var h1Elements = document.getElementsByTagName("h1");
-    var h2Elements = document.getElementsByTagName("h2");
-    var h3Elements = document.getElementsByTagName("h3");
-    var h4Elements = document.getElementsByTagName("h4");
-    var hrElements = document.getElementsByTagName("hr");
+
     if (e.key === 'b') {
       if (dark == 0) {
         document.cookie = "dark=1";
