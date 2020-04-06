@@ -332,7 +332,7 @@ a, a:visited, a:link, a:active {
         function generate() {
             var inc = 0;
             for (var i = 0; i < height; i+=size) {
-                for (var j = 0; j < width; j+=size) {
+                for (var j = 0; j < width - 50; j+=size) {
                     ctx.drawImage(images[inc], 0,0, images[inc].width, images[inc].height,
                         j, i, size, size);
                     inc++;
