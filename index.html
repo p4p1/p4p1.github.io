@@ -9,7 +9,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personnal cyber security write ups and tools.">
   <meta name="author" content="">
 
   <title>Leo Smith - Portfolio</title>
@@ -30,13 +30,16 @@
 </head>
 
 <body id="page-top">
+  <label class="switch">
+    <input type="checkbox" id="toggleshade" onclick="shade();">
+    <span class="slider round"></span>
+  </label>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top" onclick="shade()">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Leo Smith</span>
-      <span class="wrapper d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://avatars1.githubusercontent.com/u/19672114?s=460&u=a316335dbae02fc088da144283c358eca6beb42d&v=4" alt="">
-        <div id="image"></div>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://avatars1.githubusercontent.com/u/19672114?s=460&u=a316335dbae02fc088da144283c358eca6beb42d&v=4" alt="my profile picture">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -333,6 +336,15 @@
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
   <script src="js/hidden.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163484307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-163484307-1');
+  </script>
 
 </body>
 

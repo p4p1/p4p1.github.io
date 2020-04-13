@@ -48,6 +48,7 @@ function logKey(e) {
 
     if (e.key === 'b') {
       if (dark == 0) {
+        document.getElementById("toggleshade").checked = true;
         document.cookie = "dark=1";
         document.body.style.backgroundColor = "#353333"
         document.body.style.color = "#FFFFFF"
@@ -68,6 +69,7 @@ function logKey(e) {
         }
         dark = 1;
       } else {
+        document.getElementById("toggleshade").checked = false;
         document.cookie = "dark=0";
         dark = 0;
         document.body.style.backgroundColor = "#FFFFFF"
