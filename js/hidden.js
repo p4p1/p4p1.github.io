@@ -25,6 +25,7 @@ var h3Elements = document.getElementsByTagName("h3");
 var h4Elements = document.getElementsByTagName("h4");
 var hrElements = document.getElementsByTagName("hr");
 if (dark == 1) {
+    document.getElementById("toggleshade").checked = true;
     document.body.style.backgroundColor = "#353333"
     document.body.style.color = "#FFFFFF"
     for(var i = 0; i < h1Elements.length; i++) {

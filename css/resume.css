@@ -237,3 +237,7 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+#main_center {
+  margin-top: 20%;
+}
