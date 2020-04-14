@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /backup.tar.xz
 
 Sitemap: https://p4p1.github.io/sitemap.xml
