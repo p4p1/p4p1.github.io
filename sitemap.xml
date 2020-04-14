@@ -7,13 +7,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://p4p1.github.io/portfolio.html</loc>
+    <loc>https://p4p1.github.io/portfolio/</loc>
     <lastmod>2020-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://p4p1.github.io/allpaper-gen.html</loc>
+    <loc>https://p4p1.github.io/wallpaper-gen.html</loc>
     <lastmod>2020-04-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.0</priority>
