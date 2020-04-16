@@ -165,7 +165,7 @@ a {
 }
 
 a:hover {
-  color: #117964;
+  color: #9315b7;
   text-decoration: underline;
 }
 
@@ -9849,5 +9849,37 @@ form .row:first-child .floating-label-form-group {
 }
 
 .copyright {
-  background-color: #1a252f;
+  background-color: #2d222d;
+}
+/* ---------------------------------------- */
+.post-container {
+  width: 100%;
+}
+.post {
+  list-style-type: none;
+  display: flex;
+}
+
+.post-image {
+  display: inline-block;
+  float: left;
+  max-width: 220px;
+  border-radius: 10%;
+  max-height: 220px;
+}
+.post-data {
+  margin-left: 5%;
+  display: inline-block;
+  float: right;
+  text-position: center;
+}
+
+.white-hr {
+  background-color: rgba(255, 255, 255, 0.42)
+}
+
+.center {
+  display: block;
+  margin-left: 25%;
+  margin-right: 15%;
 }
