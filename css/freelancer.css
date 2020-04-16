@@ -9855,14 +9855,21 @@ form .row:first-child .floating-label-form-group {
 .post-container {
   width: 100%;
 }
-.post {
+.post-widget {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-widget:hover {
+  background-color: rgba(0, 0, 0, 0.20);
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
 }
 
 .post-image {
-  max-width: 13rem;
+  width: 13rem;
   border-radius: 10%;
   max-height: auto;
 }
@@ -9880,3 +9887,4 @@ form .row:first-child .floating-label-form-group {
   margin-left: 25%;
   margin-right: 15%;
 }
+

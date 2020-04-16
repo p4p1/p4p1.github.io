@@ -7,7 +7,7 @@ function getDarkcookie() {
   var cookieArray = allcookies.split(';');
 
   for (var i = 0; i < cookieArray.length; i++) {
-    if (cookieArray[i].split('=')[0] == "dark") {
+    if (cookieArray[i].split('=')[0].replace(/\s/g, '') == "dark") {
       return (Number(cookieArray[i].split('=')[1]));
     }
   }

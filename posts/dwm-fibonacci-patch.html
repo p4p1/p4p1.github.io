@@ -8,7 +8,7 @@
   <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
   <meta name="author" content="Leo Smith">
 
-  <title>Leo Smith - Post-1</title>
+  <title>Leo Smith - DWM Fibonnaci patch</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">TITLE</h1>
+        <h1 class="mt-4">DWM fibonnaci patch</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -76,100 +76,104 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Created on TIMESTAMP</p>
+        <p>Created on Tue. 16 avril 2020 09:06:40  CEST</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="img-fluid rounded" src="https://dwm.suckless.org/dwm.svg" alt="">
 
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+        <p class="lead">
+          I have been using dwm for about a month, enjoying the Fibonacci mode and I really
+          wanted to implement gaps between the windows. So by looking at the suckless page I found
+          <a href="https://dwm.suckless.org/patches/ru_gaps/dwm-ru_fibonacci-6.2.diff">this patch</a>,
+          the big issue I have with this patch is that if there is a single window
+          on the screen the gaps are not effective on the outer borders and that's
+          pretty shit. So I decided to build my own patch!
+        </p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-
-        <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+        <p>
+          To begin with I got a clean version of dwm6.2 and patched it with the
+          ru-fibonacci patch... And the compilation failed:
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/compilation_error.png" />
+        <p></p>
+        <p>
+          Looking at the gcc error I figured out that the structure mon
+          was missing a variable gappx.
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/adding_gappx.png" />
+        <p></p>
+        <p>
+          So then I run make again and it works! :) But when I run dwm the gaps
+          aren't there because I forgot to set the gaps in the source code. So
+          let's do that!
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/code_set_gappx.png" />
+        <p></p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/no_gapps.png" />
+        <p></p>
+        <p>
+          Now that I added the code to set the variable gappx the issue I have is
+          clear in the next two images:
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/problem.png" />
+        <p></p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/gapss_are_there.png" />
+        <p></p>
+        <p>
+          So now I will work on the value of the outer gaps. In the fibonacci.c file
+          there's some useful information.
+          <ol>
+            <li>The "if (n == 1) {" line: 8</li>
+            <li>And the "resize(c, nx + mon->gappx, ny, nw - 2 * (c->bw) - mon->gappx, nh - 2 * (c->bw) - 2*mon->gappx, False);" line: 59</li>
+          </ol>
+          The first line is the source of my problems. It can be translated as,
+          if number of lines is equal to 1, then set the size of the window to
+          fill it. I don't want that. The second line shows me how the gaps are set
+          when there are more than 1 window and that's the behavior I am looking for.
+        </p>
+        <p>
+          So I start simple I first implement the gaps on the top and left side of
+          the window by adding those two " + mon gappx" and then recompile:
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/addgappxxy.png" />
+        <p></p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/starting_to_get_there.png" />
+        <p></p>
+        <p>
+          I then looked at how the width and height of the window is calculated
+          by the resize that I noted above and " - mon->gappx" to the height and width
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/remove_width_height.png" />
+        <p></p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/border_set_but_broken.png" />
+        <p></p>
+        <p>
+          I'm starting to get there, at that moment I new I was really close to
+          the end of my little project! Looking back at that resize line I realized
+          that they don't just remove the size of gappx to the width and height but
+          that they double it before removing it, so I did exactly the same and TADAAA! it works :D
+        </p>
+        <img class="img-fluid rounded" src="img/dwm_fib_post/final.png" />
+        <p></p>
+        <p>
+          Thank you so much for reading this is my first post and my first blog.
+          Please follow me on GitHub and this blog so you can be update on my
+          new projects.
+        </p>
 
         <hr>
 
-        <!-- Comments Form -->
-        <div class="card my-4">
-          <h5 class="card-header">Leave a Comment:</h5>
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-
-        <!-- Comment with nested comments -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-              <div class="media-body">
-                <h5 class="mt-0">Commenter Name</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-          </div>
-        </div>
 
       </div>
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
 
-        <!-- Search Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Search</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
         <!-- Dark mode Widget -->
         <div class="card my-4">
           <h5 class="card-header">Dark Mode</h5>
@@ -180,62 +184,43 @@
             </label>
           </div>
         </div>
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Useful links:</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="https://gist.github.com/p4p1/9091635c66e621967092e3e1ff8e7f8c">github source code</a>
+                  </li>
+                  <li>
+                    <a href="https://suckless.org/">suckless website</a>
+                  </li>
+                  <li>
+                    <a href="https://dwm.suckless.org/patches/ru_gaps/dwm-ru_fibonacci-6.2.diff">patch this is based on</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Share widget -->
         <div class="card my-4">
           <h5 class="card-header">Share</h5>
           <div class="card-body">
             <!-- AddToAny BEGIN -->
             <div class="a2a_kit a2a_kit_size_32 a2a_default_style center">
+              <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+              <a class="a2a_button_google_gmail"></a>
               <a class="a2a_button_facebook"></a>
               <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_reddit"></a>
             </div>
             <script async src="https://static.addtoany.com/menu/page.js"></script>
             <!-- AddToAny END -->
           </div>
         </div>
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
-
       </div>
 
     </div>
