@@ -100,7 +100,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p class="text-white">My wallpaper during the day. It's a selection of my favorites albums.</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/desktop.png" alt="">
@@ -111,7 +111,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p class="text-white">My prompt for the bash shell.</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/terminal.png" alt="">
@@ -122,7 +122,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p>My wallpaper during the night.</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/desktop_night.png" alt="">
@@ -133,7 +133,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p>How it looks like to code on my config</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/programming.png" alt="">
@@ -144,7 +144,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p>How it looks like to pentest on my config</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/pentest.png" alt="">
@@ -155,7 +155,7 @@
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                <p>My vim color scheme</p>
+                <i class="fas fa-info"></i>
               </div>
             </div>
             <img class="img-fluid" src="img/portfolio/vim.png" alt="">
@@ -314,7 +314,205 @@
       <i class="fa fa-chevron-up"></i>
     </a>
   </div>
+  <!-- image on click modal -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Daytime desktop</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/desktop.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                My wallpaper during the day. It's a selection of my favorites albums.
+                Created the wallpaper with <a href="https://gist.github.com/p4p1/155e2515dd82d662421a6a31388322bf">the script bellow</a>
+                that I also turned into <a href="wallpaper-gen.html">this web app</a>.
+              </p>
+              <script src="https://gist.github.com/p4p1/155e2515dd82d662421a6a31388322bf.js"></script>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Bash shell</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/terminal.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                My prompt for the bash shell.
+              </p>
+              <script src="https://gist.github.com/p4p1/3447d7aa3399dd2780a88bdbd545b5fb.js"></script>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Nightime DEsktop</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/desktop_night.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                My wallpaper during the night.
+              </p>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Programming Worlflow</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/programming.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                Programming on my config
+              </p>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">pentest Worlflow</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/pentest.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                How it looks like to pentest on my config
+              </p>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+      </button>
+      <div class="modal-body text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <!-- Portfolio Modal - Title-->
+              <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Text editor</h2>
+              <!-- Icon Divider-->
+              <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+              </div>
+              <!-- Portfolio Modal - Image-->
+              <img class="img-fluid rounded mb-5" src="img/portfolio/vim.png" alt="" />
+              <!-- Portfolio Modal - Text-->
+              <p class="mb-5">
+                My vim color scheme
+              </p>
+              <script src="https://gist.github.com/p4p1/78586f1dad1c081410c2f917c85848b9.js"></script>
+              <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
