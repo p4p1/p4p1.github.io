@@ -9858,19 +9858,16 @@ form .row:first-child .floating-label-form-group {
 .post {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .post-image {
-  display: inline-block;
-  float: left;
-  max-width: 220px;
+  max-width: 13rem;
   border-radius: 10%;
-  max-height: 220px;
+  max-height: auto;
 }
 .post-data {
   margin-left: 5%;
-  display: inline-block;
-  float: right;
   text-position: center;
 }
 
