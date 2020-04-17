@@ -8,7 +8,7 @@
   <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
   <meta name="author" content="Leo Smith">
 
-  <title>Leo Smith - DWM Fibonnaci patch</title>
+  <title>Leo Smith - Post-1</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">DWM fibonnaci patch</h1>
+        <h1 class="mt-4">Unblur Plugin</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -76,94 +76,83 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Created on Tue. 16 avril 2020 09:06:40  CEST</p>
+        <p>Created on Fri. 17 avril 2020 17:47:02  CEST</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="https://dwm.suckless.org/dwm.svg" alt="">
+        <img class="img-fluid rounded" src="https://raw.githubusercontent.com/p4p1/tinder_0d/master/tab-icon.png" alt="preview meme">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">
-          I have been using dwm for about a month, enjoying the Fibonacci mode and I really
-          wanted to implement gaps between the windows. So by looking at the suckless page I found
-          <a href="https://dwm.suckless.org/patches/ru_gaps/dwm-ru_fibonacci-6.2.diff">this patch</a>,
-          the big issue I have with this patch is that if there is a single window
-          on the screen the gaps are not effective on the outer borders and that's
-          pretty shit. So I decided to build my own patch!
+          I was bored last December talking to a friend of mine and he shared with
+          me a known bug of tinder where you could unblur the pictures of the people
+          who liked you without paying for tinder gold,
         </p>
 
         <p>
-          To begin with I got a clean version of dwm6.2 and patched it with the
-          ru-fibonacci patch... And the compilation failed:
+          with a bit of quick thinking it was easy to understand why this would
+          exist. Uploading on their server hundreds of photos from each profile with
+          a copy of each photo blurred would take up a shit ton of space on their
+          servers innit. So I jumped on my web browser and started to inspect
+          the "teaser" page, more on why it's called that later.
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/compilation_error.png" />
+        <!-- Bdrs(8px) Bgz(cv) Bgp(c) Ov(h) StretchedBox Ir(p) Cnt($blank)::a StretchedBox::a Bg($inherit)::a Scale(1.3)::a Scale(1.2)::a--s Blur(12px)::a -->
+
+        <img class="img-fluid rounded" src="img/tinder_unblur_plugin/blured_pictures.png" alt="">
         <p></p>
         <p>
-          Looking at the gcc error I figured out that the structure mon
-          was missing a variable gappx.
+          While inspecting the page I see some interesting information about the div
+          that contains the blurred image. The div has a css attribute "Blur(12px)::a",
+          so I decide to remove it and low and behold the image is not blurred anymore!
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/adding_gappx.png" />
+        <img class="img-fluid rounded" src="img/tinder_unblur_plugin/unblur_1_pixel_pick.png" alt="">
         <p></p>
         <p>
-          So then I run make again and it works! :) But when I run dwm the gaps
-          aren't there because I forgot to set the gaps in the source code. So
-          let's do that!
+          Seeing this blur effect and the image all pixelated I was wondering
+          how the website recovered images from the server so I went through and opened
+          the network inspector and started seeing requests to "api.gotinder.com"
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/code_set_gappx.png" />
-        <p></p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/no_gapps.png" />
+        <img class="img-fluid rounded" src="img/tinder_unblur_plugin/network_mon_teaser.png" alt="">
         <p></p>
         <p>
-          Now that I added the code to set the variable gappx the issue I have is
-          clear in the next two images:
+          Inspecting this request and seeing the json (derulo) I found the link to the teaser images.
+          Inside of this json data I realized also that the link is inside of an array
+          looking at the other elements of the array I found the links to the images
+          but in a more clear resolution!
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/problem.png" />
-        <p></p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/gapss_are_there.png" />
+        <img class="img-fluid rounded" src="img/tinder_unblur_plugin/json_data.png" alt="">
         <p></p>
         <p>
-          So now I will work on the value of the outer gaps. In the fibonacci.c file
-          there's some useful information.
-          <ol>
-            <li>The "if (n == 1) {" line: 8</li>
-            <li>And the "resize(c, nx + mon->gappx, ny, nw - 2 * (c->bw) - mon->gappx, nh - 2 * (c->bw) - 2*mon->gappx, False);" line: 59</li>
-          </ol>
-          The first line is the source of my problems. It can be translated as,
-          if number of lines is equal to 1, then set the size of the window to
-          fill it. I don't want that. The second line shows me how the gaps are set
-          when there is more than 1 window and that's the behavior I am looking for.
+          With all of this information I started working on the chrome plug-in.
+          After a bit of research I found out that chrome plug-ins are written in
+          Javascript, html and css. So I quickly made a script that when you
+          load up tinders pages it searches for instances of Blur() and removes it
+          from the class name.
         </p>
-        <p>
-          So I start simple I first implement the gaps on the top and left side of
-          the window by adding those two " + mon gappx" and then recompile:
-        </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/addgappxxy.png" />
-        <p></p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/starting_to_get_there.png" />
+        <img class="img-fluid rounded" src="img/tinder_unblur_plugin/source.png" alt="">
         <p></p>
         <p>
-          I then looked at how the width and height of the window is calculated
-          by the resize that I noted above and " - mon->gappx" to the height and width
+          With the chrome plug-in done in less than an hour I started wondering,
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/remove_width_height.png" />
-        <p></p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/border_set_but_broken.png" />
-        <p></p>
+        <blockquote class="blockquote">
+          <p class="mb-0">Am I the only bloody genius out there to do this kind of thing?</p>
+          <footer class="blockquote-footer">Leo Smith
+            <cite title="Source Title">Dec 2019</cite>
+          </footer>
+        </blockquote>
         <p>
-          I'm starting to get there, at that moment I knew I was really close to
-          the end of my little project! Looking back at that resize line I realized
-          that they don't just remove the size of gappx to the width and height but
-          that they double it before removing it, so I did exactly the same and TADAAA! it works :D
+          But with a little bit of research I was proven wrong, a lot of people know
+          about this problem and it also seems like they do not want to correct it!
+          If you wish to research this topic further I provided useful links in
+          the according card on the right, or bellow if you are on mobile.
         </p>
-        <img class="img-fluid rounded" src="img/dwm_fib_post/final.png" />
-        <p></p>
         <p>
-          Thank you so much for reading this is my first post and my first blog.
-          Please follow me on GitHub and this blog so you can be update on my
-          new projects.
+          Thank you for reading this. This project is not my most impressive one
+          but it was really fun to work on. Follow me on Github and share this
+          page to all of your horny friends LOL.
         </p>
 
         <hr>
@@ -184,21 +173,22 @@
             </label>
           </div>
         </div>
+
         <!-- Categories Widget -->
         <div class="card my-4">
           <h5 class="card-header">Useful links</h5>
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-10">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="https://gist.github.com/p4p1/9091635c66e621967092e3e1ff8e7f8c">github source code</a>
+                    <a href="https://github.com/p4p1/tinder_0d">The plug-in</a>
                   </li>
                   <li>
-                    <a href="https://suckless.org/">suckless website</a>
+                    <a href="https://gist.github.com/rtt/10403467">Tinder API Documentation</a>
                   </li>
                   <li>
-                    <a href="https://dwm.suckless.org/patches/ru_gaps/dwm-ru_fibonacci-6.2.diff">patch this is based on</a>
+                    <a href="https://medium.com/@sansyrox/hacking-tinders-premium-model-43f9f699d44">Write up about hacking their API</a>
                   </li>
                 </ul>
               </div>
@@ -221,6 +211,7 @@
             <!-- AddToAny END -->
           </div>
         </div>
+
       </div>
 
     </div>
@@ -300,6 +291,7 @@
     gtag('js', new Date());
     gtag('config', 'UA-163484307-1');
   </script>
+
   <script>
     var card = document.getElementsByClassName("card");
     var h4Elements = document.getElementsByTagName("h4");
