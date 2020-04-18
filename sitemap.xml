@@ -28,6 +28,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://p4p1.github.io/posts/ignite-tryhackme-writeup.html</loc>
+    <lastmod>2020-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://p4p1.github.io/wallpaper-gen.html</loc>
     <lastmod>2020-04-05</lastmod>
     <changefreq>yearly</changefreq>

