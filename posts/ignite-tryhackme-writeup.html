@@ -157,47 +157,47 @@
           </code>
         </pre>
         <p>
-          While those scan where running, I visited the page on my browser to see
+          While those scans were running, I visited the page on my browser to see
           if it had a web app running.
         </p>
         <img class="img-fluid rounded" src="img/ignite/web_page_image.png" alt="">
         <p></p>
         <p id="vuln">
-          Looking at this page thinking to myself wtf is this, I start researching
-          fuel CMS and what it's for. I then figure out it's some kind of WordPress
-          like web app. Looking a bit deeper in the project I understand it's running
+          Looking at this page thinking to myself wtf is this, I started researching
+          fuel CMS and what it's for. I then figurerd out it's some kind of WordPress
+          like web app. Looking a bit deeper in the project I understood it was running
           CodeIgniter a PHP5 framework. Knowing this there probably is an exploit
-          out there for this. Going through exploit-db I find the
+          out there for this. Going through exploit-db I found the
           <a href="https://www.exploit-db.com/exploits/47138">CVE-2018-16763</a>
           exploit. Knowing from the code and the title of the attack it's a remote
           code execution one.
         </p>
         <p>
-          After figuring this out I go back to my nmap scans and see that they
-          are finished I find the version of apache they are using and some useful
-          links provided by the nmap script. I start looking around the first page
-          and seeing some cool information I could use I write down the different
-          links from the page and at the bottom I find default login credentials.
+          After figuring this out I went back to my nmap scans and saw that they
+          were finished. I found the version of apache that they where using and some useful
+          links provided by the nmap script. I started looking around the first page
+          and saw some cool information I could use, I wrote down the different
+          links from the page and at the bottom I found default login credentials.
         </p>
         <img class="img-fluid rounded" src="img/ignite/admin_user_pass.png" alt="">
         <p></p>
         <p>
-          When I saw this my brain finally clicked the user didn't set anything up
+          When I saw this my brain finally clicked. The user didn't set anything up
           this is a default installation of Fuel CMS. I then decided to inspect the
           robots.txt file:
         </p>
         <img class="img-fluid rounded" src="img/ignite/robots.png" alt="">
         <p></p>
         <p>
-          And to my big surprise I find a path for the fuel page. I then visit it
+          And to my big surprise I found a path for the fuel page. I then visited it
           and put the admin credentials in
         </p>
         <img class="img-fluid rounded" src="img/ignite/admin_dashboard.png" alt="">
         <p></p>
         <p>
           Cool I found an entry point to the Fuel CMS :) without thinking further,
-          (BIG NO NO!) I start thinking to myself "Oh shit! I'm gonna upload some
-          php backdoor" so I roll out a simple php script that I use for that:
+          (BIG NO NO!) I started thinking to myself "Oh shit! I'm gonna upload some
+          php backdoor" so I rolled out a simple php script that I would use for that:
         </p>
         <pre>
           <code class="prettyprint">
@@ -220,12 +220,12 @@
           by setting a few variables in the main dashboard of the server. Now trying to
           visit the page was an other story, when I visited it I got error 404 now that
           part is so confusing for me because on the admin panel it was there... Why?!?!?
-          But OK so after doing a bit of research on the room I find out that I should
+          But OK so after doing a bit of research on the room I found out that I should
           probably be using the exploit I found on exploit-db instead of creating my own. LOL.
         </p>
         <p>
-          So after that I run the script by swapping a few values around and removing
-          their proxy settings inside of it, bang! I get a sweet shell.
+          So after that I ran the script by swapping a few values around and removing
+          their proxy settings inside of it, bang! I got a sweet shell.
         </p>
         <pre>
           <code class="prettyprint">
@@ -242,7 +242,7 @@
           Looking back at the write-up thinking this shell is terribly shit I see
           that this bloke uses
           <a href="https://github.com/Arrexel/phpbash/blob/master/phpbash.php">phpbash.php</a>
-          what a genius so I download the php file put it on a web server and then run
+          what a genius so I downloaded the php file and put it on a web server and then ran
           a wget on the box to download the script.
         </p>
         <pre>
@@ -251,42 +251,42 @@
           </code>
         </pre>
         <p>
-          I then try to visit the page and yup it work's better than my shady script.
+          I then tried to visit the page and yup it worked better than my shady script.
         </p>
         <img class="img-fluid rounded" src="img/ignite/php_bash_shell.png" alt="">
         <p></p>
         <p id="flag1">
-          I then look around for a bit on that shell and think "wait, the second
+          I then looked around for a bit on that shell and thought "wait, the second
           flag name is root.txt I need to be root!" so instead of looking for the
-          first flag I start trying to do some privesc, so I type sudo -l in the
-          terminal and realize that I need a tty so I wonder if I could just do
+          first flag I started trying to do some privesc, so I typed sudo -l in the
+          terminal and realized that I needed a tty so I wondered if I could just do
           a reverse ssh shell to my machine and go from there and after 100
-          failed tries I give up and go to the home directory of the user and find
-          the first flag :) cool. Now that was done I decided to go back to messing
+          failed tries I gave up and went to the home directory of the user and found
+          the first flag :) cool. Now that that was done I decided to go back to messing
           around with tty's.
         </p>
         <p id="privesc">
-          After a few hours I go nut's why the hell can't I figure this thing out
+          After a few hours I went nut's why the hell can't I figure this thing out and
           at that point I'm also starving to death (not the best of ideas LOL)
-          so I look back at the write-up I was on before and I see that he manages
+          so I looked back at the write-up I was on before and I saw that he managed
           to do it. So I was on the right track but I just didn't know how to do
-          it. So after some hard understanding (copy-paste) I manage to get some
+          it. So after some hard understanding (copy-paste) I managed to get some
           progress
         </p>
         <p>
-          Now in the tty session I start going through all of the files on the
+          Now in the tty session I started going through all of the files on the
           system looking for some privescs but looking back at my research phase
-          I see all of the config links I wrote down. I see a MY_config one but
-          nothing there, even the config.php is useless. Bloody hell at that point
-          I feel like I'm just waisting my time reading wierd ass config files
-          and then, the light, I display the content of the database config and
-          I see something beautiful!
+          I saw all of the config links that I wrote down. I saw a MY_config one but
+          nothing was there, even the config.php was useless. Bloody hell, at that point
+          I felt like I was just wasting my time reading weird ass config files
+          and then, the light, I displayed the content of the database config and
+          I saw something beautiful!
         </p>
         <img class="img-fluid rounded" src="img/ignite/admin_password.png" alt="">
         <p></p>
         <p id="flag2">
-          So yeah hallelujah!! the root password! I then login the root user via
-          the shell previously set up and yeah I finally finished this room.
+          So yeah hallelujah!! the root password! I then loged-in as root via
+          the shell that was previously set up and yeah I finally finished this room.
         </p>
         <img class="img-fluid rounded" src="img/ignite/ttysol.png" alt="">
         <p></p>
@@ -302,7 +302,7 @@
           do this. For me this is the hardest part I think because I am so used
           to being really efficient when I code for example. It's hard to take a
           step back and really take my time. I also need to work more on tty's
-          and reverse shell's. I did write in C a reverse shell but it was very
+          and reverse shells. I did write in C a reverse shell but it was very
           basic. I am also really interested on how they work. I also need a more
           organized approach at pentesting I am really all over the place when I
           pentest so I need to find a better approach. I think I will acquire most
