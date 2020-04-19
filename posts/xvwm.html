@@ -153,6 +153,25 @@
           This is the variable where the script searches for the .desktop files
           where it extracts all of the paths for each window manager.
         </p>
+        <p>
+          Also, you can modify startup commands for your xsessions by adding the
+          following code to your .bashrc:
+        </p>
+        <pre>
+          <code class="prettyprint">
+            [ ! -z "$XVWM" ] && source ~/.xvwm/xvwm.bash
+          </code>
+        </pre>
+        <p>
+          And modifying the file ~/.xvwm/xvwm.bash, by default it should look
+          something like this:
+        </p>
+        <img class="img-fluid rounded" src="img/xvwm/defaultxvwmrc.png" alt="">
+        <p></p>
+        <p>
+          The command xrandr is used to force the nested xsession window to have
+          a certain width and height.
+        </p>
         <hr />
         <p>
           Thank you for reading follow me on Github and check out the other posts
