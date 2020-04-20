@@ -8,7 +8,7 @@
   <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
   <meta name="author" content="Leo Smith">
 
-  <title>Leo Smith - xvwm.sh</title>
+  <title>Leo Smith - Wallpaper Generator</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">xvwm.sh</h1>
+        <h1 class="mt-4">Wallpaper-gen</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -76,108 +76,111 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Created on sun. 19 April 2020 01:32:40 </p>
+        <p>Created on Mon. 20 April 2020</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.opensuse.org%2Fimages%2F2%2F2b%2FX.Org_Logo.png&f=1&nofb=1" alt="">
+        <img class="img-fluid rounded" src="img/wallpaper/lol3.png" alt="">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">
-          Today I created a simple script to create Xephyr sessions so that I
-          can dynamically test different window managers on the fly,
+          I was in need of a new wallpaper, and I wanted to make one from my album collection,
+          I have around 400 albums saved in my youtube music gallery so that's clearly enough
+          for a wallpaper,
         </p>
 
-        <h3 id="installation">Installation</h3>
+        <h3 id="write-up">How I built it</h3>
         <p>
-          To be able to install xvwm.sh you will need a few dependencies:
+          I have no prior knowledge of Image processing in any programming language, so
+          after some googling I found a nice python library called
+          <a href="https://pillow.readthedocs.io/en/stable/">PIL</a>. That library
+          looked good enough for me, I just needed to crop the images to a fitting size
+          and place them on a blank canvas.
+        </p>
+        <p>
+          I started by downloading 4 sample Images and wanted to do a basic square canvas
+          of 1000x1000 pixels. In my script I first enumerate each file and save
+          them inside of an array as so:
         </p>
         <pre>
           <code class="prettyprint">
-            sudo apt install libx11-dev libxinerama-dev libxft-dev build-essential xserver-xephyr
+            onlyfiles=[f for f in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, f))]
           </code>
         </pre>
-
         <p>
-          The xvwm.sh script will also have to install a last dependence that is
-          a custom version of dmenu for picking the different window managers that
-          are available.
+          I then created a new image using the python library:
+        </p>
+        <img class="img-fluid rounded" src="img/wallpaper/new_image.png" alt="">
+        <p></p>
+        <p>
+          With the new image set I then looped through the 4 sample files and used
+          the paste function of the PIL library to paste inside of the destination
+          main picture.
+        </p>
+        <img class="img-fluid rounded" src="img/wallpaper/4x4.png" alt="">
+        <p></p>
+        <p>
+          Now I need some arithmetic to have the picture size scale accoridingly
+          to the resolution passed in parameter to the function so that I could
+          work with x amount of images.
         </p>
         <pre>
           <code class="prettyprint">
-           Welcome to ./xvwm.sh this is your first install...
-           creating path in /home/p4p1/.xvwm/
-           installing custom dmenu...
-            % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                           Dload   Upload  Total   Spent    Left  Speed
-            100 90.2M  100 90.2M    0     0  4131k      0  0:00:22  0:00:22 --:--:-- 4330k
-           make: Entering directory '/tmp/backup/.source/dmenu-4.9'
-           [ Compiling ... ]
-           make: Leaving directory '/tmp/backup/.source/dmenu-4.9'
+                one_side=math.trunc(math.sqrt((screen_size[0]*screen_size[1]) / number_files))
           </code>
         </pre>
         <p>
-          After its first run you can copy the xvwm.sh script inside of /usr/bin
-          to have it as a script on your system if you want. To do this you can
-          just run the script with -i:
+          Because each album artwork is a square I just had to calculate only one side
+          of the square without taking account weird width of screens and such.
         </p>
-        <pre>
-          <code class="prettyprint">
-            $ sudo ./xvwm.sh -i
-          </code>
-        </pre>
-        <h3 id="usage">Usage</h3>
         <p>
-          This script by default when run will prompt you with the different
-          window managers that it found on the system.
+          Now with the python script ready I now need a way to download every single
+          album artwork from YoutubeMusic. I looked online for a bit to see if youtube
+          music has an API, but with no solution on the horizon I decided to extract
+          them myself. With the Network Monitor builtin of most modern browsers
+          I can create a .har file that keeps track of all of the requests my
+          browser sent to music.youtube.com with that in mind, I built a python
+          script that downloads Images from a .har file.
         </p>
-        <img class="img-fluid rounded" src="img/xvwm/gui.png" alt="">
+        <h3 id="tutorial">Tutorial</h3>
+        <p>
+          You first have to dump the youtube music album covers to do that, I visited
+          the page music.youtube.com/library/playlists. Opened my Network Inspector,
+          I then clicked on the Album link and scrolled all the way down so that my
+          browser picked up all of the artworks.
+        </p>
+        <img class="img-fluid rounded" src="img/wallpaper/network_log.png" alt="">
         <p></p>
         <p>
-          From here you can select the window manager you want to open
-          and it should open in the Xephyr window.
+          I then exported the .har into the folder I had the ytm_extractor.py script
+          in and ran the script:
         </p>
-        <img class="img-fluid rounded" src="img/xvwm/wm.png" alt="">
-        <p></p>
-        <h3 id="configure">Configure</h3>
-        <p>
-          If you wish to customize where the xsession folder is you just need
-          to modify this line of code by the path on your machine:
-        </p>
-        <img class="img-fluid rounded" src="img/xvwm/path_to_edit.png" alt="">
+        <img class="img-fluid rounded" src="img/wallpaper/run_extractor.png" alt="">
         <p></p>
         <p>
-          This is the variable where the script searches for the .desktop files
-          where it extracts all of the paths for each window manager.
+          The output should be similar to this with a bunch of output corresponding
+          to each file downloaded. You then have to run the wallpaper-gen script
+          with the corresponding arguments and the wallpaper should be generated:
         </p>
-        <p>
-          Also, you can modify startup commands for your xsessions by adding the
-          following code to your .bashrc:
-        </p>
-        <pre>
-          <code class="prettyprint">
-            [ ! -z "$XVWM" ] && source ~/.xvwm/xvwm.bash
-          </code>
-        </pre>
-        <p>
-          And modifying the file ~/.xvwm/xvwm.bash, by default it should look
-          something like this:
-        </p>
-        <img class="img-fluid rounded" src="img/xvwm/defaultxvwmrc.png" alt="">
+        <img class="img-fluid rounded" src="img/wallpaper/gen.png" alt="">
         <p></p>
+        <h3 id="web-version">Web version</h3>
         <p>
-          The command xrandr is used to force the nested xsession window to have
-          a certain width and height.
+          If you don't want to bother with the python scripts you can still use
+          the web version I made <a href="../wallpaper-gen.html">here</a>.
         </p>
+        <img class="img-fluid rounded" src="img/wallpaper/web_version.png" alt="">
+        <p></p>
         <hr />
         <p>
-          Thank you for reading follow me on Github and check out the other posts
-          on this blog for more stuff like this.
+          Thank you for reading, please follow me on github and check out this
+          forum a bit more I work on some cool projects. Share the page to your
+          rice crazy friends.
         </p>
-
+        <hr />
       </div>
 
       <!-- Sidebar Widgets Column -->
@@ -191,13 +194,13 @@
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#installation">Installation</a>
+                    <a href="#write-up">How I built it</a>
                   </li>
                   <li>
-                    <a href="#usage">Usage</a>
+                    <a href="#tutorial">Tutorial</a>
                   </li>
                   <li>
-                    <a href="#configure">Configure</a>
+                    <a href="#web-version">Web version</a>
                   </li>
                 </ul>
               </div>
@@ -232,12 +235,25 @@
         </div>
 
 
-        <!-- Side Widget -->
+        <!-- Categories Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Similar content</h5>
+          <h5 class="card-header">Links</h5>
           <div class="card-body">
-            <a href="dwm-fibonacci-patch.html">DWM Fibonacci patch</a> <br />
-            <a href="https://gist.github.com/p4p1/18cd144c9ea354e80b16e16bdf35c7c1">The script</a>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="https://gist.github.com/p4p1/155e2515dd82d662421a6a31388322bf">wallpaper-gen.py</a>
+                  </li>
+                  <li>
+                    <a href="https://gist.github.com/p4p1/744f37495c0ea1b9311f08a872700194">ytm_extractor.py</a>
+                  </li>
+                  <li>
+                    <a href="../wallpaper-gen.html">Web version</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
