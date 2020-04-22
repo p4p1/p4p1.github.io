@@ -93,7 +93,7 @@
         <h3 id="recon">Reconnaissance</h3>
         <p>
           As usual I begin with a classic nmap, most of the recon I usually try and
-          do as much of it without the help that the room ensures.
+          do as much as possible without the help that the room ensures.
         </p>
 
         <pre>
@@ -155,43 +155,42 @@
 
         <p>
           After the end of the first nmap scan I started looking around the web server
-          that is hosted on port 3333. With no more information there and the result of
-          the second nmap with no special vulnerabilities I could exploit. I return to
-          the tryhackme page.
+          that is hosted on port 3333. With no more information on the website
+          and no vulnerabilities to exploit from the nmap, I returned to the tryhackme page.
         </p>
         <img class="img-fluid rounded" src="img/vulnversity/webpage.png" alt="">
         <p></p>
         <h3 id="dir">Dir busting</h3>
         <p>
-          After filling up the reconnaissance page I go to the next step about
-          dirbuster I decide then to use another tool owasp zapproxy to see if I
-          can achieve the same result with another tool.
+          After filling up the reconnaissance page I went to the next step about
+          dirbuster where I decided to use another tool, owasp zapproxy, to see if I
+          could achieve the same result with another tool.
         </p>
         <img class="img-fluid rounded" src="img/vulnversity/zapdir.png" alt="">
         <p></p>
         <p>
-          Amazing! After waiting for the zap proxy result finished there was a
-          /internal/ entry returned by the program. Opening it there was a nice
+          Amazing! After waiting for the zap proxy to finish there was a
+          /internal/ entry returned by the program. When I opened it there was a nice
           upload page.
         </p>
         <img class="img-fluid rounded" src="img/vulnversity/upload.png" alt="">
         <p></p>
         <p>
           On that upload page I tried uploading a .php file and I got an error saying
-          that I couldn't upload a .php file.
+          that I couldn't upload .php files.
         </p>
         <h3 id="compromise">Compromisation of server</h3>
         <p>
-          So I then went back to the tryhackme page and filled in all of the answers
-          corresponding to the dirbuster research. I then looked into the next section
-          where they indicate that you need to compromise the webserver using
-          burpsuite. Following their indications, I open burpsuite and did the
+          So then I went back to the tryhackme page and filled in all of the answers
+          corresponding to the dirbuster research. I looked into the next section
+          where they indicated that you need to compromise the webserver using
+          burpsuite. Following their indications, I opened burpsuite and did the
           different steps. Not that hard innit.
         </p>
         <img class="img-fluid rounded" src="img/vulnversity/phpext.png" alt="">
         <p></p>
         <p>
-          After finding the extension that is expected to upload I then renamed
+          After finding the extension that is expected to upload, I then renamed
           my phpbash.php script to phpbash.phtml. So that I can compromise the
           webserver.
         </p>
@@ -199,9 +198,9 @@
         <p></p>
         <h3 id="privesc">Privilege escalation</h3>
         <p>
-          With that information I then extracted the first flag in the home folder
-          of the main user. Looking back on the tryhackme page I figure out I needed
-          to do some simple privesc so I start scanning the system for setuid programs
+          With the information I extracted, the first flag in the home folder
+          of the main user, I looked back on the tryhackme page and I figured out I needed
+          to do some simple privesc. So then I started scanning the system for setuid programs
           with:
         </p>
         <pre>
@@ -210,17 +209,16 @@
           </code>
         </pre>
         <p>
-          Looking at the output of the command I saw that systemctl had a suid bit
-          active. I then researched on gtfobins what I could do with systemctl and
+          Looking at the output of the command, I saw that systemctl had a suid bit
+          active. I researched on gtfobins what I could do with systemctl and
           if I could do some privilege escalation.
         </p>
         <p>
-          Finding that it was possible I first wanted to upgrade my shell to a cleaner
-          one. By looking at two tutorials online (see links) I then upgraded my shell to something
-          a lot more cleaner.
+          Finding that it was possible, I first wanted to upgrade my shell to a cleaner
+          one. By looking at two tutorials online (see links) I then upgraded my shell.
         </p>
         <p>
-          I then with that new information start working on the exploit I wanted to use:
+          I then, with that new information started working on the exploit I wanted to use:
         </p>
         <pre>
           <code class="prettyprint">
@@ -235,19 +233,18 @@
           </code>
         </pre>
         <p>
-          The exploit I implement is to try to make bash a suid program so that
+          The exploit I implemented is to try to make bash a suid program so that
           if I run bash -p I keep the root permissions of the setuid bit.
           With that I had total access to the machine.
         </p>
         <hr />
         <p>
-          Working on that second machine was a lot less stressful than last time
-          I took a lot more time to study it and did a lot more research so that
-          I got less stuck on the different problems I could have encountered.
+          Working on this second machine was a lot less stressful than last time.
+          I took more time to study and research the different topics.
           In conclusion, this was fun, I used less external help and reverted to old
           writeups so that I could upgrade my reverse shell. This room gave me an
           idea. I'm going to code my own reverse shell that spawns automatically in
-          that fake tty mode so that I never go back to the struggle of trying to
+          the fake tty mode so that I never go back to the struggle of trying to
           get a clean shell. This will probably be showcased in my next writeup.
         </p>
         <p>
