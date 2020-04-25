@@ -13,23 +13,43 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://p4p1.github.io/posts/</loc>
-    <lastmod>2020-04-16</lastmod>
+    <loc>https://p4p1.github.io/projects/index.html</loc>
+    <lastmod>2020-04-25</lastmod>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://p4p1.github.io/posts/dwm-fibonacci-patch.html</loc>
+    <loc>https://p4p1.github.io/projects/dwm-fibonacci-patch.html</loc>
     <lastmod>2020-04-16</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://p4p1.github.io/posts/tinder-unblur-plug-in.html</loc>
+    <loc>https://p4p1.github.io/projects/tinder-unblur-plug-in.html</loc>
     <lastmod>2020-04-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://p4p1.github.io/posts/ignite-tryhackme-writeup.html</loc>
+    <loc>https://p4p1.github.io/projects/wallpaper-gen.html</loc>
+    <lastmod>2020-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://p4p1.github.io/projects/xvwm.html</loc>
+    <lastmod>2020-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://p4p1.github.io/writeups/index.html</loc>
+    <lastmod>2020-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://p4p1.github.io/writeups/ignite-tryhackme-writeup.html</loc>
     <lastmod>2020-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://p4p1.github.io/writeups/vulnversity-tryhackme-writeup.html</loc>
+    <lastmod>2020-04-25</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
