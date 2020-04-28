@@ -1,60 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://p4p1.github.io/</loc>
-    <lastmod>2020-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/portfolio/</loc>
-    <lastmod>2020-04-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/projects/index.html</loc>
-    <lastmod>2020-04-25</lastmod>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/projects/dwm-fibonacci-patch.html</loc>
-    <lastmod>2020-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/projects/tinder-unblur-plug-in.html</loc>
-    <lastmod>2020-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/projects/wallpaper-gen.html</loc>
-    <lastmod>2020-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/projects/xvwm.html</loc>
-    <lastmod>2020-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/writeups/index.html</loc>
-    <lastmod>2020-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/writeups/ignite-tryhackme-writeup.html</loc>
-    <lastmod>2020-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/writeups/vulnversity-tryhackme-writeup.html</loc>
-    <lastmod>2020-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://p4p1.github.io/wallpaper-gen.html</loc>
-    <lastmod>2020-04-05</lastmod>
-    <changefreq>yearly</changefreq>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://p4p1.github.io/</loc>
+  <lastmod>2020-04-26T16:14:23+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://p4p1.github.io/portfolio/index.html</loc>
+  <lastmod>2020-04-26T16:14:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://p4p1.github.io/writeups/</loc>
+  <lastmod>2020-04-26T16:14:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://p4p1.github.io/projects/</loc>
+  <lastmod>2020-04-26T16:14:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://p4p1.github.io/wallpaper-gen.html</loc>
+  <lastmod>2020-04-26T16:14:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://p4p1.github.io/index.html</loc>
+  <lastmod>2020-04-26T16:14:23+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
