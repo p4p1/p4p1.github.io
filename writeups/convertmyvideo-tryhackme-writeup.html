@@ -8,7 +8,7 @@
   <meta name="description" content="Leo Smith's website, specialized in cyber security research, programming and audit. This website also contains my personal cyber security write ups and tools.">
   <meta name="author" content="Leo Smith">
 
-  <title>Leo Smith - TROPDROLE</title>
+  <title>Leo Smith - ConvertMyVideo</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">TROPDROLE</h1>
+        <h1 class="mt-4">ConvertMyVideo</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -73,85 +73,155 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Created on Sun. 03 may 2020</p>
+        <p>Created on Mon. 04 May 2020</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="img/tropdrole/icon.png" alt="">
+        <img class="img-fluid rounded" src="https://tryhackme-images.s3.amazonaws.com/room-icons/cbe93621ee926a7dd9e2d56eca3922cc.png" alt="">
 
         <hr>
 
         <!-- Post Content -->
         <p class="lead">
-          For my teaching job at the web@cademie, I created a simple CTF for the
-          students so that they could learn how to use the "view-source" and
-          "Developer Tools".
+          This room was probably one of my favourites of tryhackme. I recommend you
+          finishing it on your own first!
         </p>
 
-        <h3 id="entrance">Getting to the first challenge</h3>
+        <h3 id="recon">Reconnaissance</h3>
         <p>
-          The first challenge is completed by using the "Elements" tag from the
-          "developer tools"
+          As usual I first started with a nmap and a nikto.
         </p>
-        <img class="img-fluid rounded" src="img/tropdrole/inspector.png" alt="">
+        <pre>
+          <code class="prettyprint">
+            ![p4p1@computer notes/]$ nmap 10.10.117.246
+            Starting Nmap 7.60 ( https://nmap.org ) at 2020-05-03 22:18 CEST
+            Nmap scan report for 10.10.117.246
+            Host is up (0.043s latency).
+            Not shown: 998 closed ports
+            PORT   STATE SERVICE
+            22/tcp open  ssh
+            80/tcp open  http
+
+            Nmap done: 1 IP address (1 host up) scanned in 0.78 seconds
+
+            ![p4p1@computer notes/]$ nikto -host 10.10.117.246
+            - Nikto v2.1.5
+            ---------------------------------------------------------------------------
+            + Target IP:          10.10.117.246
+            + Target Hostname:    10.10.117.246
+            + Target Port:        80
+            + Start Time:         2020-05-03 22:19:11 (GMT2)
+            ---------------------------------------------------------------------------
+            + Server: Apache/2.4.29 (Ubuntu)
+            + The anti-clickjacking X-Frame-Options header is not present.
+            + No CGI Directories found (use '-C all' to force check all possible dirs)
+            + IP address found in the 'location' header. The IP is "127.0.1.1".
+            + OSVDB-630: IIS may reveal its internal or real IP in the Location header via a request to the /images directory. The value is "http://127.0.1.1/images/".
+            + DEBUG HTTP verb may show server debugging information. See http://msdn.microsoft.com/en-us/library/e8z01xdh%28VS.80%29.aspx for details.
+            + Server leaks inodes via ETags, header found with file /icons/README, fields: 0x13f4 0x438c034968a80
+            + OSVDB-3233: /icons/README: Apache default file found.
+            + 6544 items checked: 15 error(s) and 6 item(s) reported on remote host
+            + End Time:           2020-05-03 22:28:14 (GMT2) (543 seconds)
+            ---------------------------------------------------------------------------
+            + 1 host(s) tested
+          </code>
+        </pre>
+        <p>
+          The scans didn't return much information for me to use so I decided to move
+          to OWASP ZAP:
+        </p>
+        <img class="img-fluid rounded" src="img/convertmyvideo/zap.png" alt="">
         <p></p>
         <p>
-          Using the Elements tab you can inspect different parts of the page and edit
-          them by double clicking on them.
+          With that running and still not much information other than a /admin path
+          I started inspecting the webpage.
+        </p>
+        <img class="img-fluid rounded" src="img/convertmyvideo/page.png" alt="">
+        <p></p>
+        <p>
+          Seeing this page I started getting curious, How is the page converting it's
+          videos. From the nmap and nikto scans I knew that the server was running
+          Ubuntu so I was guessing command injection. Using BurpSuite I started
+          debugging the form field:
+        </p>
+        <img class="img-fluid rounded" src="img/convertmyvideo/burp.png" alt="">
+        <p></p>
+        <p>
+          From that I figured out that replacing the url of the video with ;command;
+          would allow me to execute a command so in python I created a
+          <a href="https://gist.github.com/p4p1/e30f185ff5ba02fa7e427d1da3cd8547">simple shell</a>.
+        </p>
+        <img class="img-fluid rounded" src="img/convertmyvideo/code.png" alt="">
+        <p></p>
+        <p>
+          The code highlighted in red is what I figured out last. The first time
+          going through this box the server cut all of my commands after a space
+          character and I was not able to execute commands with arguments so I had
+          to replace the Space characters with tabs it was not easy at all to figure
+          out and it took me 3hours, I felt so stupid.
         </p>
 
-        <h3 id="first">First Challenge</h3>
+        <h3 id="exploit">Exploitation</h3>
         <p>
-          Every challenge has the same layout with the answer field in the middle
-          to proceed to the next challenge and a small hint inside of the title.
+          With my script working I then figured out I had to get a fully working
+          shell so I used python and pty to do so:
         </p>
-        <img class="img-fluid rounded" src="img/tropdrole/field.png" alt="">
+        <img class="img-fluid rounded" src="img/convertmyvideo/pty.png" alt="">
         <p></p>
         <p>
-          For the first challenge the hint his confusing but looking at it closely
-          it's just some ascii characters in hexadecimal. Using the JS console,
-          I am able to decode the hint:
+          After getting a shell I started looking around the file system and found
+          a admin/ folder in witch there was a .htpasswd with an unknown hash and
+          a username.
         </p>
-        <img class="img-fluid rounded" src="img/tropdrole/firsthint.png" alt="">
+        <img class="img-fluid rounded" src="img/convertmyvideo/admin.png" alt="">
         <p></p>
         <p>
-          With that information I then decided to inspect the javascript found on
-          the page. After running this code through a beautifier there is
-          and other string that looks a lot like the title to be decrypted.
+          I ran the hash through hashcat on my machine to see if it could give me
+          any solutions but it was a rabbit hole I never used that information again.
         </p>
-        <img class="img-fluid rounded" src="img/tropdrole/prettyjs.png" alt="">
+        <img class="img-fluid rounded" src="img/convertmyvideo/hashcat.png" alt="">
         <p></p>
-        <p>
-          If you try to decrypt that variable, you can then find the solution!
-        </p>
 
-        <h3 id="second">Second Challenge</h3>
-        <img class="img-fluid rounded" src="img/tropdrole/second.png" alt="">
-        <p></p>
+        <h3 id="privesc">Privilege Escalation</h3>
         <p>
-          The second challenge Is a lot easier than the first one. Using the
-          inspector like before will not show us the solution. But using
-          "view-source" will. In this case you could only see the flag if you did
-          not have Javascript enabled.
+          From that point I was stuck I look a lot around the file system on how I
+          could get root access, I was out of luck. I ran linpeas.sh and linenum.sh
+          but nothing stood out to me. Looking back now that I know the solution
+          It probably was displayed on those scripts but I didn't look hard enough I
+          guess.
         </p>
-
-        <h3 id="third">Third Challenge</h3>
-        <img class="img-fluid rounded" src="img/tropdrole/third.png" alt="">
+        <img class="img-fluid rounded" src="img/convertmyvideo/linpeas.png" alt="">
         <p></p>
         <p>
-          The third challenge is all about using GET and POST to send data. The
-          solution is written out on the screen and is sent to the server using a GET
-          request. To complete it you need to change the method.
+          After looking through more privilege escalation tutorials online I was
+          burned out so I went to sleep. Waking up I decided to ask on discord to see
+          if anyone could help me out. And ibarkay helped me! He told me to look into
+          the cronjobs and to look at the tool pspy64s it could help me. I looked at
+          the github page of pspy64s and installed it on the machine.
+        </p>
+        <img class="img-fluid rounded" src="img/convertmyvideo/pspy.png" alt="">
+        <p></p>
+        <p>
+          Looking at the output I saw that there was a cronjob running a file located
+          in /var/www/html/tmp:
+        </p>
+        <pre>
+          <code class="prettyprint">
+            /bin/sh -c cd /var/www/html/tmp && bash /var/www/html/tmp/clean.sh
+          </code>
+        </pre>
+
+        <p>
+          Using this information I then replaced the script so that it added a SUID
+          bit to the bash program so that I could run bash with root privileges.
         </p>
 
         <hr />
 
         <p>
-          Thank you for reading please follow me on the socials and please read
-          my other write-ups.
+          Thank you for reading, check out my other write-ups and projects.
         </p>
-
       </div>
 
       <!-- Sidebar Widgets Column -->
@@ -165,16 +235,13 @@
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#entrance">Entrance</a>
+                    <a href="#recon">Reconnaissance</a>
                   </li>
                   <li>
-                    <a href="#first">First</a>
+                    <a href="#exploit">Exploitation</a>
                   </li>
                   <li>
-                    <a href="#second">Second</a>
-                  </li>
-                  <li>
-                    <a href="#third">Third</a>
+                    <a href="#privesc">Privilege Escalation</a>
                   </li>
                 </ul>
               </div>
@@ -221,19 +288,16 @@
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="https://tryhackme.com/room/tropdrole">try hackme link</a>
+                    <a href="https://tryhackme.com/room/convertmyvideo">The challenge</a>
                   </li>
                   <li>
-                    <a href="https://github.com/p4p1/TROPDROLE">Github link</a>
+                    <a href="https://gist.github.com/p4p1/e30f185ff5ba02fa7e427d1da3cd8547">Command injection script</a>
                   </li>
-                  <li>
-                    <a href="https://drive.google.com/file/d/1X6Eh1vEW_dyfs1k2nfom7Z2E1M__6T-N/view?usp=sharing">Virtual box file</a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
+
 
       </div>
 
