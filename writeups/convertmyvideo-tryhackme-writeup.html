@@ -222,6 +222,21 @@
         <p>
           Thank you for reading, check out my other write-ups and projects.
         </p>
+        <hr />
+
+        <h5 id="notes">Notes</h5>
+        <p>
+          Thanks to Ibarkay he helped me with the privilege escalation aspect and to
+          Jomba Aeronaves Boing 157 who contacted me for some help on how to get the
+          shell working and shared to me an other solution instead of replacing tabs
+          in the script you can also replace with ${IFS}.
+        </p>
+        <pre>
+          <code class="prettyprint">
+            string=";%s;#" % cmd.replace(' ', '${IFS}')
+          </code>
+        </pre>
+
       </div>
 
       <!-- Sidebar Widgets Column -->
@@ -242,6 +257,9 @@
                   </li>
                   <li>
                     <a href="#privesc">Privilege Escalation</a>
+                  </li>
+                  <li>
+                    <a href="#notes">Notes</a>
                   </li>
                 </ul>
               </div>
